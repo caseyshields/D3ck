@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <style>
-            html {
-                box-sizing: border-box;
-            }
-            *, :before, :after {
-                box-sizing: inherit;
-                margin: 0;
-                padding: 0;
-            }
-            
-        </style>
+        <title>D3CK</title>
+        <link rel="stylesheet" type="text/css" href="./index.css">
     </head>
     <body>
-        <header>
-        </header>
-        <section>
+
+        <section class="deck">
         </section>
-        <footer>
-        </footer>
+
+        <section class="modal">
+            <!--<iframe
+                src=""
+                scrolling="yes"
+                frameborder="5">
+            </iframe>
+            <button click="hide()">
+                close
+            </button>-->
+        </section>
+
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
         <script type="module">
@@ -32,7 +31,7 @@
             let section = d3.select('section');
             let deck = D3ck(section);
             deck(content);
-            
+
         </script>
     </body>
 </html>
