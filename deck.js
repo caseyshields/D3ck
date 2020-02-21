@@ -24,12 +24,12 @@ export default function(selection) {
                 article.append('div')
                     .html(entry.summary);
 
-                // let tags = article.append('ul')
-                //     .selectAll('li') // do I need this line?
-                //     .data(entry.tags);
-                // tags.enter()
-                //     .append('li')
-                //     .html(d=>d);
+                let tags = article.append('ul')
+                    .selectAll('li') // do I need this line?
+                    .data(entry.tags);
+                tags.enter()
+                    .append('li')
+                    .html(d=>d);
             });
         cards = newcards.merge(cards);
     }
