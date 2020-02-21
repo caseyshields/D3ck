@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            html {
+                box-sizing: border-box;
+            }
+            *, :before, :after {
+                box-sizing: inherit;
+                margin: 0;
+                padding: 0;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <section>
+        </section>
+        <footer>
+        </footer>
+        <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
+        <script src="./content.js" charset="utf-8"></script>
+        <script type="module">
+            import D3ck from './deck.js';
+            
+            let content = getContent();
+            console.log(content);
+
+            let section = d3.select('section');
+            let deck = D3ck(section);
+            deck(content);
+            
+        </script>
+    </body>
+</html>
