@@ -3,10 +3,70 @@
     <head>
         <title>D3CK</title>
         <link rel="stylesheet" type="text/css" href="./index.css">
+        <style>
+            .hero {
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                width: 100vw;
+                height: 100vh;
+                background-color: var( --secondary );
+            }
+            .shield {
+                display: grid;
+                grid-template-columns: 5em 5em;
+                grid-template-rows: 5em 10em;
+            }
+            .a {
+                background-color: var( --primary );
+                grid-area: 1 / 1 / 2 / 3;
+            }
+            .b {
+                background-color: var( --secondary );
+                grid-area: 2 / 1 / 3 / 3;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+            .c {
+                background-color: var( --secondary );
+                grid-area: 1 / 1 / 2 / 2;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+            .d {
+                background-color: var( --secondary );
+                grid-area: 1 / 2 / 2 / 3;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+            .e {
+                background-color: var( --primary );
+                grid-area: 2 / 1 / 3 / 2;
+                border-bottom-left-radius: 100%;
+            }
+            .f {
+                background-color: var( --primary );
+                grid-area: 2 / 2 / 3 / 3;
+                border-bottom-right-radius: 100%;
+            }
+        </style>
     </head>
     <body>
 
-        <header class="banner">
+        <div class="hero">
+            <a href="#content">
+                <span class="shield">
+                    <span class="a"></span>
+                    <span class="b"></span>
+                    <span class="c"></span>
+                    <span class="d"></span>
+                    <span class="e"></span>
+                    <span class="f"></span>
+                </span>
+            </a>
+        </div>
+
+        <header id="content" class="banner">
             <a href="mailto:caseyorigami@gmail.com"> Casey Shields </a>
             <a href="https://github.com/caseyshields/"> Github </a>
             <a href="https://www.pinterest.com/caseyorigami/"> Pinterest </a>
