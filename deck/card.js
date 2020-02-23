@@ -1,4 +1,16 @@
-
+/** Creates a Card component which summarizes an article and links to it.
+ * The resulting markup looks like
+```html
+<article class="card">
+    <a href="${item.link}">${item.title}</a>
+    <div> ${item.summary} </div>
+    <ul>
+        <li> item.tags[n] </li>
+        <!-- a bullet is added for every tag -->
+    </ul>
+</article>
+```
+ */
 export default function(selection) {
 
     // let cards = selection.selectAll('article.card')
