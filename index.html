@@ -6,6 +6,14 @@
     </head>
     <body>
 
+        <header class="banner">
+            <p>Casey Shields</p>
+        </header>
+
+        <nav>
+
+        </nav>
+
         <section class="deck">
         </section>
 
@@ -20,11 +28,23 @@
             </button>-->
         </section>
 
+        <footer class="banner">
+            <a href="https://github.com/caseyshields/"> Github </a>
+            <a href="https://www.etsy.com/shop/CaseyOrigami"> Etsy </a>
+            <a href="https://www.meetup.com/Origami-Meetup-Henderson/"> Meetup </a>
+            <a href="mailto:caseyorigami@gmail.com"> email </a>
+            <a href="https://www.pinterest.com/caseyorigami/"> Pinterest </a>
+            <a href="https://www.instagram.com/caseyorigami/"> Instagram </a>
+            <a href="https://studio.bricklink.com/v2/build/user.page?idBuilder=900802"> BrickLink </a>
+        </footer>
+
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
         <script type="module">
             import D3ck from './deck.js';
             
+            let Window = document.defaultView
+
             let content = getContent();
             console.log(content);
 
@@ -32,6 +52,22 @@
             let deck = D3ck(section);
             deck(content);
 
+            section.on('mousemove', function(item, index, selection) {
+                let height = 100;
+
+                let screen = d3.mouse(this);
+                let bounds = [Window.outerWidth, Window.outerHeight];
+                let offset = [Math.floor(height*(0.5-(screen[0]/bounds[0]))),
+                                Math.floor(height*(0.5-(screen[1]/bounds[1]))) ];
+                console.log(screen, bounds);
+
+                section.selectAll('article.card')
+                    .style('box-shadow', function(d) {
+                        return `${offset[0]}px ${offset[1]}px 25px 5px rgba(0.0,0.0,0.0,0.1)`;
+                    });
+                //console.log( {item, index, selection} );
+
+            })
         </script>
     </body>
 </html>
