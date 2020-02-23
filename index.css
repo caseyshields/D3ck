@@ -1,5 +1,17 @@
 /* General */
 
+:root {
+    --primary: #F0F0F0;
+    --secondary: #a5b39a;
+    --tertiary: #add8e6;
+    --gap: 1.0em;
+    --radius: 0.5em;
+    --margin: 4em;
+    /* --banner: 2.0em;
+    --control: 50px;
+    --content: calc( 100vh - ( 2 * var(--banner) ) - var(--control) ); */
+}
+
 html {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -11,18 +23,7 @@ html {
     padding: 0;
 }
 
-:root {
-    --primary: #F0F0F0;
-    --secondary: #a5b39a;
-    --tertiary: #add8e6;
-    --gap: 1.0em;
-    --radius: 0.5em;
-    --margin: 4em;
-    /* #c7d5bc; */
-    /* --banner: 2.0em;
-    --control: 50px;
-    --content: calc( 100vh - ( 2 * var(--banner) ) - var(--control) ); */
-}
+/** Page sections */
 
 header {
     position: sticky;
@@ -33,23 +34,34 @@ footer {
     bottom: 0;
 }
 
-.tag {
-    border-radius: var( --radius );
-}
-
 .banner {
     display: grid;
-    grid-template-columns: repeat( auto-fill, 1fr);
+    grid-template-columns: 3fr repeat( auto-fill, 1fr);
     grid-auto-flow: column;
-    align-items: center;
     padding: var( --gap );
     z-index: 9001;
-    color: var( --primary );
     background-color: var( --secondary );
     /* border-bottom: solid 10px #CCC; */
-  }
+}
 
-/* Deck Styling */
+.banner > * {
+    text-align: right;
+    color: var( --primary );
+}
+
+.banner > *:first-child {
+    text-align: left;
+    color: var( --primary );
+}
+
+/* TODO this seems less eloquent. Try to extract some classes */
+/* .label {
+    border-radius: var( --radius );
+    background-color: var( --secondary );
+    color: var( --primary );
+    border-radius: var( --radius );
+} */
+
 .deck {
     display: grid;
     grid-auto-flow: row;
@@ -61,18 +73,12 @@ footer {
     background-color: var(--primary);
   }
 
-.label {
-    background-color: var( --primary );
-    color: var( --secondary );
-    border-radius: var( --radius)
-}
-
 /* Card Styling */
 
 .card {
     display: grid;
-    grid-template-rows: 2em auto;
-    grid-template-columns: auto 2em;
+    grid-template-rows: 1em auto;
+    grid-template-columns: auto 1em;
     column-gap: var( --gap );
     row-gap: var( --gap );
     padding: var( --gap );
@@ -82,13 +88,13 @@ footer {
 
 .card > a {
     border-radius: var( --radius );
-    padding: var( --gap );
-    align-self: center;
     grid-area: 1 / 1 / 2 / 2;
-    /* background-color: var( --primary); */
     color: var( --primary );
+    background-color: var( --secondary );
+    height : 100%;
+    width : 100%;
 }
-
+/** TODO I got to figure out where I'm going to store my images... */
 .card > img {
     display: none;
 }
@@ -115,8 +121,7 @@ footer {
 .card li {
     display: inline;
     border-radius: var( --radius );
-    padding: 5px;
-    margin-bottom: 0.5em;
+    margin-bottom: var( --gap );
     color: var( --primary );
     /* display: list-item; */
     /* list-style-type: disc; */
