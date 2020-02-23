@@ -1,5 +1,5 @@
 /** Creates a Card component which summarizes an article and links to it.
- * The resulting markup looks like
+ * The resulting markup looks like;
 ```html
 <article class="card">
     <a href="${item.link}">${item.title}</a>
@@ -9,18 +9,17 @@
         <!-- a bullet is added for every tag -->
     </ul>
 </article>
+<!-- A new card is created for every data item -->
 ```
  */
 export default function(selection) {
 
-    // let cards = selection.selectAll('article.card')
-    //         .data(data)
-
-    // title, summary, tags, link, img
     function card(data) {
 
         let cards = selection.selectAll('article.card')
-            .data(data); //, function(d) {return d.title;}); //TODOuse a key for when we start filtering...
+            .data(data, function(d) {
+                return !d ? 'dummy' : d.title;}
+            );
 
         cards.exit().remove();
         
@@ -37,7 +36,7 @@ export default function(selection) {
                     .html(entry.summary);
 
                 let tags = article.append('ul')
-                    .selectAll('li') // do I need this line?
+                    .selectAll('li')
                     .data(entry.tags);
                 tags.enter()
                     .append('li')
