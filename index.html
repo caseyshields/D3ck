@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>D3CK</title>
+        <title>Shields</title>
         <link rel="stylesheet" type="text/css" href="./index.css">
         <style>
             .hero {
@@ -53,6 +53,7 @@
     </head>
     <body>
 
+        <!-- A CSS gimmick! -->
         <div class="hero">
             <a href="#content">
                 <span class="shield">
@@ -73,6 +74,7 @@
             <a href="https://www.instagram.com/caseyorigami/"> Instagram </a>
         </header>
 
+        <!-- Navigation bar holds filters and sorting options for cards -->
         <nav>
             <!-- <ul>
                 <li>
@@ -116,35 +118,44 @@
             </article>
         </section>
 
+        <!-- For displaying links in a dismissable modal. -->
         <section class="modal">
-            <!--<iframe
+            <iframe
                 src=""
                 scrolling="yes"
-                frameborder="5">
+                frameborder="0">
             </iframe>
-            <button click="hide()">
+            <button">
                 close
-            </button>-->
+            </button>
         </section>
 
         <footer class="banner">
-            <sub>copyright 2020</sub>
+            <sub>Made with <a href="">D3CK</a></sub>
+            <sub>2020</sub>
         </footer>
         <!-- TODO We shouldn't be able to scroll past this... -->
 
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
         <script type="module">
-            import D3ck from './deck/card.js';
-            
+            import Card from './deck/card.js';
+            import Frame from './deck/frame.js';
+
             let Window = document.defaultView
 
             let content = getContent();
             console.log(content);
 
-            let section = d3.select('section');
-            let deck = D3ck(section);
+            let dispatch = d3.dispatch
+
+            let section = d3.select('.deck');
+            let deck = Card(section);
             deck(content);
+
+            let frame = Frame(d3.select('.modal'));
+            frame({});
+            frame.show('https://caseyshields.github.io/trie/');
 
             section.on('mousemove', function(item, index, selection) {
                 let height = 50;
@@ -153,7 +164,7 @@
                 let bounds = [Window.outerWidth, Window.outerHeight];
                 let offset = [Math.floor(height*(0.5-(screen[0]/bounds[0]))),
                                 Math.floor(height*(0.5-(screen[1]/bounds[1]))) ];
-                console.log(screen, bounds);
+                // console.log(screen, bounds);
 
                 section.selectAll('article.card')
                     .style('box-shadow', function(d) {
@@ -161,7 +172,7 @@
                     });
                 //console.log( {item, index, selection} );
 
-            })
+            });
         </script>
     </body>
 </html>

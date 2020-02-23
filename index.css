@@ -54,7 +54,6 @@ footer {
     text-align: left;
     color: var( --primary );
 }
-
 /* TODO this seems less eloquent. Try to extract some classes */
 /* .label {
     border-radius: var( --radius );
@@ -129,41 +128,35 @@ footer {
 }
 
 /** Styling for modal overlay. */
-/* .modal {
+.modal {
     position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    z-index: 3;
-    background-color: #444;
+    top: var( --margin );
+    bottom: var( --margin );
+    left: var( --margin );
+    right: var( --margin );
+    z-index: 9002;
+    background-color: var( --primary );
     animation: appear 1s ease;
     overflow: hidden;
   }
   
   .modal > iframe {
     position: relative;
-    /  * top: 10px;
-    left: 10px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);* /
     width: 100%;
     height: 100%;
-    z-index: 2;
   }
   
   .modal > button {
-  
     position: fixed;
-    top: 5%;
-    right: 5%;
-    z-index: 9001;
-  }
+    top: var( --gap );
+    right: var( --gap );
+    z-index: 9003;
+  } /* TODO fix this z-index shenanigans */
   
   @keyframes appear {
     0% { opacity:0.0; }
     100% { opacity:1.0; }
-  } */
+  }
 
   /* * + * {
     margin-top: 1em;
