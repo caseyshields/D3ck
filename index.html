@@ -12,11 +12,32 @@
         </header>
 
         <nav>
-
+            <!-- <ul>
+                <li>
+                    <span></span>
+                </li>
+                <li>
+                    <span></span>
+                </li>
+            </ul> -->
         </nav>
 
         <section class="deck">
             <!-- removable placeholders for the markup the card component generates -->
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
             <article class="card">
                 <a></a>
                 <div></div>
@@ -69,7 +90,7 @@
             deck(content);
 
             section.on('mousemove', function(item, index, selection) {
-                let height = 100;
+                let height = 50;
 
                 let screen = d3.mouse(this);
                 let bounds = [Window.outerWidth, Window.outerHeight];

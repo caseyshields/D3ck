@@ -9,22 +9,19 @@ html {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
 }
 
 :root {
-    --primary: #FFFFFF;
-    --secondary: #add8e6;
-    --tertiary: #e6add8;
-
-    --radius: 0.25em;
+    --primary: #F0F0F0;
+    --secondary: #a5b39a;
+    --tertiary: #add8e6;
+    --gap: 1.0em;
+    --radius: 0.5em;
+    --margin: 4em;
+    /* #c7d5bc; */
     /* --banner: 2.0em;
     --control: 50px;
     --content: calc( 100vh - ( 2 * var(--banner) ) - var(--control) ); */
-}
-
-a {
-    color: var(--tertiary);
 }
 
 header {
@@ -45,9 +42,9 @@ footer {
     grid-template-columns: repeat( auto-fill, 1fr);
     grid-auto-flow: column;
     align-items: center;
-    padding: 10px;
+    padding: var( --gap );
     z-index: 9001;
-
+    color: var( --primary );
     background-color: var( --secondary );
     /* border-bottom: solid 10px #CCC; */
   }
@@ -57,10 +54,10 @@ footer {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: repeat( auto-fill, minmax(256px, 1fr));
-    grid-auto-rows: repeat( auto-fill, minmax( 362px, 1fr ) );
-    column-gap: 5em;
-    row-gap: 5em;
-    padding: 5em;
+    grid-auto-rows: minmax( 362px, 1fr );
+    column-gap: var( --margin );
+    row-gap: var( --margin );
+    padding: var( --margin );
     background-color: var(--primary);
   }
 
@@ -74,31 +71,41 @@ footer {
 
 .card {
     display: grid;
-    grid-template-rows: 2em 0.5em auto;
-    grid-template-columns: auto 0.5em 2em;
+    grid-template-rows: 2em auto;
+    grid-template-columns: auto 2em;
+    column-gap: var( --gap );
+    row-gap: var( --gap );
+    padding: var( --gap );
     background-color: var( --secondary );
-    padding: 0.5em;
     border-radius: var( --radius );
 }
 
 .card > a {
     border-radius: var( --radius );
-    padding: 5px;
+    padding: var( --gap );
     align-self: center;
     grid-area: 1 / 1 / 2 / 2;
+    /* background-color: var( --primary); */
+    color: var( --primary );
 }
 
-.card > img, .card > div {
-    grid-area: 3 / 1 / 4 / 2;
+.card > img {
+    display: none;
+}
+
+.card > div {
+    grid-area: 2 / 1 / 3 / 2;
     height : 100%;
     width : 100%;
     overflow : hidden;
     border-radius: var( --radius );
     padding: 1em;
+    background-color: var( --primary );
+    color: var( --secondary );
 }
 
 .card > ul {
-    grid-area: 3 / 3 / 4 / 4;
+    grid-area: 1 / 2 / 3 / 3;
     writing-mode: vertical-lr;
     align-self: flex-start;
     justify-self: center;
@@ -109,7 +116,8 @@ footer {
     display: inline;
     border-radius: var( --radius );
     padding: 5px;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    color: var( --primary );
     /* display: list-item; */
     /* list-style-type: disc; */
 }
