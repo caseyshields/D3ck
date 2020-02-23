@@ -97,7 +97,25 @@ getContent = function () {
       tags: ['lego', 'transformer', 'thunderbolt'],
       img: "img/thunderbolt.png",
       link: "https://rebrickable.com/mocs/MOC-25799/deceptibot/transforming-a10-thunderbolt/"
+    }, {
+      title: "Origami Shadow Boxes",
+      summary: "My Etsy store. I sell origami shadow boxes. ",
+      tags: ["origami", "art", "store"],
+      img: "",
+      link: "https://www.etsy.com/shop/CaseyOrigami"
+    }, {
+      title: "Henderson Origami Club",
+      summary: "A meetup club I helped found and teach at",
+      tags: ["origami", "teaching", "meetup"],
+      img: "",
+      link: "https://www.meetup.com/Origami-Meetup-Henderson/"
+    }, {
+      title: "Rebrickable Gallery",
+      summary: "My rebrickable gallery where I share instructions for the models I've made",
+      tags: ["Lego", "MOC", "instructions"],
+      img: "",
+      link: "https://rebrickable.com/users/deceptibot/mocs/"
     }
-
+    //<a href="https://studio.bricklink.com/v2/build/user.page?idBuilder=900802"> BrickLink </a>
   ]
 };
