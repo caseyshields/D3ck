@@ -18,9 +18,10 @@ TODO
  - [ ] make an external/internal link distinction and make the modal behave appropriately
  - [ ] fix the dang shadow effect z height
  - [ ] add a tag toggles component to the filter/navigation.
+ - [ ] figure out where to host images and how to optimize them
+ - [ ] make card component lazy load images, swap image w/description on mouseover
  - [ ] use D3's state management
  - [ ] make components comunicate with the app using dispatch
- - [ ] figure out where to host images and how to optimize them
  - [ ] investigate static site generation
  - [ ] incorporate the rest of the D3 components I've made over the years
 

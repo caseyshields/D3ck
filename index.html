@@ -119,9 +119,12 @@
             let content = getContent();
             console.log(content);
 
+            let deck = D3ck();
+            deck.dispatch.on('deck.', console.log);
+
             let section = d3.select('.deck');
-            let deck = Card(section);
-            deck(content);
+            let cards = Card(deck, section);
+            cards(content);
 
             let frame = Frame(d3.select('.modal'));
             frame({});
