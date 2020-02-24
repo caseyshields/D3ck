@@ -14,12 +14,15 @@ I recently realized I like writing in D3 rather than any reactive, templated fra
 I was able to rewrite my vue card deck components in a single sitting, and arrived at something much more concise.
 
 TODO
- - add tag toggles to the filter/navigation.
- - make an external/internal link distinction and make the modal behave appropriately
- - figure out where to host images and how to optimize them
- - investigate static site generation
- - use D3's state management
- - incorporate the rest of the D3 components I've made over the years
+ - [x] add a modal component
+ - [ ] make an external/internal link distinction and make the modal behave appropriately
+ - [ ] fix the dang shadow effect z height
+ - [ ] add a tag toggles component to the filter/navigation.
+ - [ ] use D3's state management
+ - [ ] make components comunicate with the app using dispatch
+ - [ ] figure out where to host images and how to optimize them
+ - [ ] investigate static site generation
+ - [ ] incorporate the rest of the D3 components I've made over the years
 
 
 
