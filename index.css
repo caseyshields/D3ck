@@ -26,6 +26,15 @@ html {
 
 /** Page sections */
 
+.hero {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var( --secondary );
+}
+
 header {
     position: sticky;
     top: 0;
@@ -54,7 +63,9 @@ footer {
     text-align: left;
     color: var( --primary );
 }
-/* TODO this seems less eloquent. Try to extract some classes */
+/* TODO this seems less eloquent.
+ * Try to extract some classes for these banners and headers...
+ * Maybe styles for color combinations taken from the ternary color scheme? */
 /* .label {
     border-radius: var( --radius );
     background-color: var( --secondary );
@@ -94,6 +105,7 @@ footer {
     height : 100%;
     width : 100%;
 }
+
 /** TODO I got to figure out where I'm going to store my images... */
 .card > img {
     display: none;
