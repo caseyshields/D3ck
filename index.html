@@ -120,7 +120,8 @@
             console.log(content);
 
             let deck = D3ck();
-            deck.dispatch.on('deck.', console.log);
+            deck.dispatch.on('preview', console.log);
+            deck.dispatch.on('navigate', console.log);
 
             let section = d3.select('.deck');
             let cards = Card(deck, section);

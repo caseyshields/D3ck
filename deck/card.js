@@ -72,8 +72,8 @@ export default function(deck, selection) {
     }
 
     // Event prototypes dispatched by this component
-    let navigate = 'deck.navigate';
-    let preview = 'deck.preview';
+    let navigate = 'navigate';
+    let preview = 'preview';
     
     /* When the user clicks on the summary, Card will emit a 'navigate' event for 'external_links' media
      * types, or it will generate a 'preview' event for 'internal_link' media types.
@@ -81,9 +81,9 @@ export default function(deck, selection) {
      */
     function clicker(d) {
         if (d.type=='internal_link')
-            deck.dispatch.call(navigate, card, d);
-        else if (d.type=='external_link')
             deck.dispatch.call(preview, card, d);
+        else if (d.type=='external_link')
+            deck.dispatch.call(navigate, card, d);
         // TODO add more media types as I think of them...
     }
     // TODO make behavior more configurable? Per media type?
