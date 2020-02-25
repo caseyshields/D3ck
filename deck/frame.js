@@ -11,46 +11,52 @@
     </button>
  ```
  */
-export default function(selection) {
+export default function(deck, selection) {
     
-    let state = {
-    };
+    // select the frames components
+    let iframe = selection.select('iframe');
+    let button = selection.select('button');
 
-    let frame = function(options) {
-        Object.assign( state, options );
+    let frame = function() {
 
-        // select the iframe, creating it if it doesn't exist
-        if (state.iframe==undefined)
-            state.iframe = selection.select('iframe');
-        if (state.iframe.size()==0)
-            state.iframe = selection.append('iframe')
+        // create iframe if it doesn't exist
+        if (iframe.size()==0)
+            iframe = selection.append('iframe')
                 .attr('src', '')
                 .attr('visible', false)
                 .attr('scrolling', 'yes')
-                .attr('frameborder', 0) // should be in styling?
-                ;//.style('display', 'none');
+                .attr('frameborder', 0); // should be in styling?
 
-        // select the button, creating it if it doesn't exist
-        if (state.button==undefined)
-            state.button = selection.select('button');
-        if (state.button.size()==0)
-            state.button = selection.append('button')
+        // create button it if it doesn't exist
+        if (button.size()==0)
+            button = selection.append('button')
                 .html("close");
 
         // set up the close behavior
-        state.button.on("click", hide)
+        button.on("click", hide)
     }
 
     /** navigate the iframe to the given URL, and make the frame visible */
     frame.show = function( url ) {
-        state.iframe.attr('src', url);
+        iframe.attr('src', url);
         selection.style('display', null);
     }
 
+    /** Hides the frame but does not change its contents */
+    frame.hide = hide;
     function hide( ) {
         selection.style('display', 'none');    
     }
-    frame.hide = hide;
+
+    /** Set up the frame component to listen to preview events. */
+    deck.dispatch.on('preview', function(d) {
+        console.log(d);
+        if (d.link)
+            frame.show( d.link );
+    });
+
+    // hide the frame by default.
+    frame.hide();
 
     return frame;
 }

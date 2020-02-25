@@ -127,9 +127,9 @@
             let cards = Card(deck, section);
             cards(content);
 
-            let frame = Frame(d3.select('.modal'));
+            let frame = Frame(deck, d3.select('.modal'));
             frame({});
-            frame.show('https://caseyshields.github.io/trie/');
+            // frame.show('https://caseyshields.github.io/trie/');
 
             // this shadow effect might be eye-bleeding. it is also neat.
             section.on('mousemove', function(item, index, selection) {
