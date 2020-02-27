@@ -16,6 +16,7 @@ I was able to rewrite my vue card deck components in a single sitting, and arriv
 TODO
  - [x] add a modal component
  - [ ] make an external/internal link distinction and make the modal behave appropriately
+ - [ ] wait for the iframe to load before showing it
  - [ ] fix the dang shadow effect z height
  - [ ] add a tag toggles component to the filter/navigation.
  - [ ] figure out where to host images and how to optimize them

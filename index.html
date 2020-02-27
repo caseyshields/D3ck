@@ -113,20 +113,26 @@
             import D3ck from './deck/d3ck.js';
             import Card from './deck/card.js';
             import Frame from './deck/frame.js';
-
             let Window = document.defaultView
 
+            // TODO in the future get this from some CMS or document database...
             let content = getContent();
             console.log(content);
 
+            // Create the framework's context, which includes a dispatch for component events
             let deck = D3ck();
-            deck.dispatch.on('preview', console.log);
-            deck.dispatch.on('navigate', console.log);
 
+            // for example, here we handle a 'navigate' event by changing the browser URL
+            deck.dispatch.on('navigate', function(d) {
+                Window.location.assign(d.link);
+            } );
+
+            // Create the Card components, they will generate events when their entries are clicked
             let section = d3.select('.deck');
             let cards = Card(deck, section);
             cards(content);
 
+            // create the preview modal, it also registers to listen to 'preview' events on construction
             let frame = Frame(deck, d3.select('.modal'));
             frame({});
             // frame.show('https://caseyshields.github.io/trie/');
