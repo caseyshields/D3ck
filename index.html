@@ -137,22 +137,21 @@
             frame({});
 
             // this shadow effect might be eye-bleeding. it is also neat.
-            section.on('mousemove', function(item, index, selection) {
+            d3.select('body').on('mousemove', function(item, index, selection) {
                 let height = 50;
                 let screen = d3.mouse(this);
                 let bounds = [Window.outerWidth, Window.outerHeight];
-                let offset = [Math.floor(height*(0.5-(screen[0]/bounds[0]))),
-                                Math.floor(height*(0.5-(screen[1]/bounds[1]))) ];
-                // console.log(screen, bounds);
-                // TODO actually handle the angles correctly!
-                // TODO shadows should always be below content!
 
                 section.selectAll('article.card')
                     .style('box-shadow', function(d) {
-                        return `${offset[0]}px ${offset[1]}px 25px 5px rgba(0.0,0.0,0.0,0.1)`;
+                        let factor = 20;
+                        let centroid = [ this.offsetLeft + (this.offsetWidth/2),
+                                this.offsetTop + (this.offsetHeight/2) ];
+                        let shadow = [ Math.floor((centroid[0]-screen[0])/factor),
+                                Math.floor((centroid[1]-screen[1])/factor) ];
+                        return `${shadow[0]}px ${shadow[1]}px 15px 10px rgba(0.0,0.0,0.0,0.1)`;
+                        // TODO shadows should always be below content!
                     });
-                //console.log( {item, index, selection} );
-
             });
         </script>
     </body>

@@ -15,14 +15,14 @@ I was able to rewrite my vue card deck components in a single sitting, and arriv
 
 TODO
  - [x] add a modal component
- - [ ] make an external/internal link distinction and make the modal behave appropriately
+ - [x] make an external/internal link distinction and make the modal behave appropriately
  - [ ] wait for the iframe to load before showing it
  - [ ] fix the dang shadow effect z height
  - [ ] add a tag toggles component to the filter/navigation.
  - [ ] figure out where to host images and how to optimize them
  - [ ] make card component lazy load images, swap image w/description on mouseover
  - [ ] use D3's state management
- - [ ] make components comunicate with the app using dispatch
+ - [x] make components comunicate with the app using dispatch
  - [ ] investigate static site generation
  - [ ] incorporate the rest of the D3 components I've made over the years
 
