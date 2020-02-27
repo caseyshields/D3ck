@@ -4,12 +4,11 @@
     --primary: #F0F0F0;
     --secondary: #a5b39a;
     --tertiary: #add8e6;
+
     --gap: 1.0em;
     --radius: 0.5em;
     --margin: 4em;
-    /* --banner: 2.0em;
-    --control: 50px;
-    --content: calc( 100vh - ( 2 * var(--banner) ) - var(--control) ); */
+    --banner: 2.0em;
 }
 
 html {
@@ -83,7 +82,8 @@ footer {
     column-gap: var( --margin );
     row-gap: var( --margin );
     padding: var( --margin );
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: none;
   }
 
 /* Card Styling */

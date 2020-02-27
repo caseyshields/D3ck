@@ -8,17 +8,26 @@
                 display: grid;
                 grid-template-columns: var( --margin ) auto;
             } */
-
+            body {
+                background-color: var( --primary );
+            }
             nav.tags {
                 position: sticky;
-                top: var( --margin );
+                top: calc( 2 * var( --gap ) + 1em);
                 float: left;
                 width: calc( 2 * var( --margin ));
-                height: calc( 100vh - 2 * var( --margin ) );
-                background-color: var( --primary );
+                /* ugh, need to fix banner sizing to something more explicit... */
+                height: calc( 100vh - 2 * var( --gap ) - 1em );
+                /* background-color: var( --primary ); */
+                background-color: none;
+                display: flex;
+                flex-direction: column;
             }
             div.switch {
                 background-color: var( --secondary );
+                border-radius: var( --radius );
+                /* margin: var( --gap ); */
+                align-content: center;
             }
             .switch > span {
                 background-color: var( --primary );
@@ -26,6 +35,7 @@
                 border-radius: var( --radius );
                 
             }
+            /* Weird prob; when cards fit within 100vh, bottom banner indents into grid and floats in the middle of the screen... */
         </style>
     </head>
     <body>
@@ -64,7 +74,7 @@
         <header id="contacts" class="banner">
             <a href="mailto:caseyorigami@gmail.com"> Casey Shields </a>
             <a href="https://github.com/caseyshields/"> Github </a>
-            <a href="https://www.pinterest.com/caseyorigami/"> Pinterest </a>
+            <!-- <a href="https://www.pinterest.com/caseyorigami/"> Pinterest </a> -->
             <a href="https://www.instagram.com/caseyorigami/"> Instagram </a>
         </header>
 
