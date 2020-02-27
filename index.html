@@ -3,6 +3,30 @@
     <head>
         <title>Shields</title>
         <link rel="stylesheet" type="text/css" href="./index.css">
+        <style>
+            /* main {
+                display: grid;
+                grid-template-columns: var( --margin ) auto;
+            } */
+
+            nav.tags {
+                position: sticky;
+                top: var( --margin );
+                float: left;
+                width: calc( 2 * var( --margin ));
+                height: calc( 100vh - 2 * var( --margin ) );
+                background-color: var( --primary );
+            }
+            div.switch {
+                background-color: var( --secondary );
+            }
+            .switch > span {
+                background-color: var( --primary );
+                color: var( --secondary );
+                border-radius: var( --radius );
+                
+            }
+        </style>
     </head>
     <body>
 
@@ -44,50 +68,53 @@
             <a href="https://www.instagram.com/caseyorigami/"> Instagram </a>
         </header>
 
-        <!-- Navigation bar holds filters and sorting options for cards -->
-        <nav>
-            <!-- <ul>
-                <li>
-                    <span></span>
-                </li>
-                <li>
-                    <span></span>
-                </li>
-            </ul> -->
-        </nav>
+        <!--  -->
+        <!-- <main> -->
 
-        <!-- Where the site content is displayed -->
-        <section class="deck">
-            <article class="card">
-                <a></a>
-                <div></div>
-                <ul>
-                    <li></li><li></li><li></li>
-                </ul>
-            </article>
-            <article class="card">
-                <a></a>
-                <div></div>
-                <ul>
-                    <li></li><li></li><li></li>
-                </ul>
-            </article>
-            <article class="card">
-                <a></a>
-                <div></div>
-                <ul>
-                    <li></li><li></li><li></li>
-                </ul>
-            </article>
-            <article class="card">
-                <a></a>
-                <div></div>
-                <ul>
-                    <li></li><li></li><li></li>
-                </ul>
-            </article>
-            <!-- these are removable placeholders that matches the markup the card component generates. -->
-        </section>
+            <!-- Navigation bar holds filters and sorting options for cards -->
+            <nav class="tags">
+                <div class="switch">
+                    <span></span>
+                </div>
+                <div class="switch">
+                    <span></span>
+                </div>
+            </nav>
+
+            <!-- Where the site content is displayed -->
+            <section class="deck">
+                <article class="card">
+                    <a></a>
+                    <div></div>
+                    <ul>
+                        <li></li><li></li><li></li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <a></a>
+                    <div></div>
+                    <ul>
+                        <li></li><li></li><li></li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <a></a>
+                    <div></div>
+                    <ul>
+                        <li></li><li></li><li></li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <a></a>
+                    <div></div>
+                    <ul>
+                        <li></li><li></li><li></li>
+                    </ul>
+                </article>
+                <!-- these are removable placeholders that matches the markup the card component generates. -->
+            </section>
+
+        <!-- </main> -->
 
         <!-- For displaying links in a dismissable modal. -->
         <section class="modal hide">
@@ -113,6 +140,7 @@
             import D3ck from './deck/d3ck.js';
             import Card from './deck/card.js';
             import Frame from './deck/frame.js';
+            import Tags from './deck/tags.js';
             let Window = document.defaultView
 
             // TODO in the future get this from some CMS or document database...
@@ -136,6 +164,10 @@
             let frame = Frame(deck, d3.select('.modal'));
             frame({});
 
+            let nav = d3.select('nav.tags');
+            let tags = Tags(nav);
+            tags(content);
+
             // this shadow effect might be eye-bleeding. it is also neat.
             d3.select('body').on('mousemove', function(item, index, selection) {
                 let height = 50;
@@ -150,7 +182,7 @@
                         let shadow = [ Math.floor((centroid[0]-screen[0])/factor),
                                 Math.floor((centroid[1]-screen[1])/factor) ];
                         return `${shadow[0]}px ${shadow[1]}px 15px 10px rgba(0.0,0.0,0.0,0.1)`;
-                        // TODO shadows should always be below content!
+                        // TODO shadows should always be below content- also don't render off screen ones...
                     });
             });
         </script>
