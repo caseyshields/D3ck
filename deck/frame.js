@@ -23,7 +23,6 @@ export default function(deck, selection) {
         if (iframe.size()==0)
             iframe = selection.append('iframe')
                 .attr('src', '')
-                .attr('visible', false)
                 .attr('scrolling', 'yes')
                 .attr('frameborder', 0); // should be in styling?
 
@@ -39,13 +38,14 @@ export default function(deck, selection) {
     /** navigate the iframe to the given URL, and make the frame visible */
     frame.show = function( url ) {
         iframe.attr('src', url);
-        selection.style('display', null);
+        //TODO wait until document is loaded!
+        selection.classed('hide', false);
     }
 
     /** Hides the frame but does not change its contents */
     frame.hide = hide;
     function hide( ) {
-        selection.style('display', 'none');    
+        selection.classed('hide', true);
     }
 
     /** Set up the frame component to listen to preview events. */

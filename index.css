@@ -35,6 +35,8 @@ html {
     background-color: var( --secondary );
 }
 
+.hide { display: none; }
+
 header {
     position: sticky;
     top: 0;
@@ -160,7 +162,7 @@ footer {
   
   .modal > button {
     position: fixed;
-    top: var( --gap );
+    top: var( --margin );
     right: var( --gap );
     z-index: 9003;
   } /* TODO fix this z-index shenanigans */

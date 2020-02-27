@@ -86,11 +86,11 @@
                     <li></li><li></li><li></li>
                 </ul>
             </article>
-            <!-- these are removable placeholders that matches the markup the card component generates -->
+            <!-- these are removable placeholders that matches the markup the card component generates. -->
         </section>
 
         <!-- For displaying links in a dismissable modal. -->
-        <section class="modal">
+        <section class="modal hide">
             <iframe
                 src=""
                 scrolling="yes"
@@ -130,12 +130,11 @@
             // Create the Card components, they will generate events when their entries are clicked
             let section = d3.select('.deck');
             let cards = Card(deck, section);
-            cards(content);
+            cards(content); // invoke the render method on the content
 
             // create the preview modal, it also registers to listen to 'preview' events on construction
             let frame = Frame(deck, d3.select('.modal'));
             frame({});
-            // frame.show('https://caseyshields.github.io/trie/');
 
             // this shadow effect might be eye-bleeding. it is also neat.
             section.on('mousemove', function(item, index, selection) {
