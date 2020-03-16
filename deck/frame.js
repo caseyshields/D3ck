@@ -1,4 +1,4 @@
-/** Iframe for internal previews. Will either initialize with existing or will generate its own if it can't find a match.
+/** Iframe for internal previews. Will either initialize with existing markup or will generate its own if it can't find a match.
  ```html
     <iframe
         src="${source}"
@@ -35,14 +35,19 @@ export default function(deck, selection) {
         button.on("click", hide)
     }
 
-    /** navigate the iframe to the given URL, and make the frame visible */
+    /** Navigates the iframe to the given URL, and makes the frame visible by removing the CSS class '.hide'. */
     frame.show = function( url ) {
         iframe.attr('src', url);
-        //TODO wait until document is loaded!
+        // TODO display an busy symbol, wait until document is loaded, remove busy, show frame?
         selection.classed('hide', false);
     }
 
-    /** Hides the frame but does not change its contents */
+    /** Hides the frame but does not change the DOM structure.
+     * Instead, the token 'hide' is added to it's CSS class. So your styling needs a rule like;
+``` css
+    .hide { display: none; }
+``` 
+     * This is included in the sample style sheet. */
     frame.hide = hide;
     function hide( ) {
         selection.classed('hide', true);
