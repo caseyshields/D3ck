@@ -3,7 +3,7 @@ getContent = function () {
     {
       title:"Western Dragon",
       type: "internal_link",
-      summary:"An origami dragon of high intermediate complexity. All fold angles are multiples of 22.5 degrees and relatively few folds are more than 2-ply. This makes it easier to retain accuracy and fold from a small square. The long limbs also make a variety of poses possible.",
+      summary:"One of my earliest origami designs. All fold angles are multiples of 22.5 degrees and relatively few folds are more than 2-ply. This makes it easier to retain accuracy and fold from a small square. The long limbs also make a variety of poses possible.",
       tags: ['origami', 'dragon', 'tutorial'],
       img:"img/dragon_CP.svg",
       link:"https://caseyshields.github.io/dragon/"
@@ -32,7 +32,7 @@ getContent = function () {
     // },{
       title: "Trie Example",
       type: "internal_link",
-      summary: "Demonstrates the construction of a trie data structure. The unique thing about tries is you can put millions of words in them and the retrieval time is only proportional to the length of the word. Think of a bunch of words that have the same first letter or prefixes to so how this can be. See the red dots? that's where you would link the data associated with the key.",
+      summary: "Demonstrates the construction of a trie data structure as you type. The neat thing about tries is you can put millions of words in them and the retrieval time is only proportional to the length of the word you're looking for. The leaves are marked with red- that's where you would link the data associated with the key.",
       tags: ['D3', 'trie', 'algorithms'],
       img: "img/trie.svg",
       link: "https://caseyshields.github.io/trie/"
@@ -46,15 +46,15 @@ getContent = function () {
     // },{
       title: "Ladder Diagrams",
       type: "internal_link",
-      summary: "Ladder diagrams have a discrete axis of actors, and continuous axis for time. They are used to show messaging over time in networks and computer systems.",
+      summary: "Ladder diagrams are used to show messaging between actors over time, usually in protocols or software architectures. This example shows a streaming dataset and mouse interactivity.",
       tags: ['D3', 'ladder', 'component'],
       img: "img/ladder.svg",
       link: "https://caseyshields.github.io/ladder/"
     },{
       title: "Star Catalog",
       type: "internal_link",
-      summary: "Playing around with projections in D3 using the FK6 star catalog.",
-      tags: ['D3', 'astronomy', 'FK6', 'code', 'component'],
+      summary: "Made a starchart component in D3 to display some of the star catalogs used in sensor calibration. This example shows the first part of FK6. You can alter the projection by dragging and zooming. Click stars to display their catalog entries.",
+      tags: ['D3', 'astronomy', 'FK6', 'component'],
       img: "img/stars.png",
       link: "https://caseyshields.github.io/starmap/"
     },{
@@ -66,17 +66,17 @@ getContent = function () {
     //   link: "https://www.bricklink.com/v3/studio/design.page?idModel=48368"
       
     // }, {
-      title: "Polar Plot",
-      type: "internal_link",
-      summary: "Quick demo of a simple polar plot component. Exercises some mouse limited interactivity and gives some css styling ideas.",
-      tags: ['D3', 'component', 'code'],
-      img: "img/polar.svg",
-      link: "https://caseyshields.github.io/polar/"
-    }, {
+    //   title: "Polar Plot",
+    //   type: "internal_link",
+    //   summary: "Quick demo of a simple polar plot component. Exercises some mouse limited interactivity and gives some css styling ideas.",
+    //   tags: ['D3', 'component', 'code'],
+    //   img: "img/polar.svg",
+    //   link: "https://caseyshields.github.io/polar/"
+    // }, {
       title: "Nevada",
       type: "internal_link",
-      summary: "Made a layered vector map component with D3.",
-      tags: ['D3', 'code', 'component'],
+      summary: "Made a layered vector map component with D3. Recently I refactored it to work as a composite of simpler components to help with extensibility and maintainability. I was heavily influenced by Mike Bostock's article 'On D3 Components' and tried to apply the methodology to a composition of visual components.",
+      tags: ['D3', 'cartography', 'component'],
       img: 'img/nevada.svg',
       link: "https://caseyshields.github.io/nevada/"
     }, {
@@ -94,50 +94,43 @@ getContent = function () {
     //   img: "img/pistoleer.png",
     //   link: "https://www.bricklink.com/v3/studio/design.page?idModel=66607"
     // }, {
-      title: "Dragon Tutorial",
-      type: "external_link",
-      summary: "A first attempt at making an origami tutorial.",
-      tags: ['origami', 'youtube', 'dragon'],
-      img: "img/dragon.svg",
-      link: "https://youtu.be/kOzWXQF8Z68"
-    }, {
+    //   title: "Dragon Tutorial",
+    //   type: "external_link",
+    //   summary: "A first attempt at making a youtube video. Meant to show how to fold one of my earliest origami discoveries, but It's admittedly pretty hard to follow along. I worry written origami instrucions are going to die out, so I'm trying to git gud at video things. Meh, I'll add to this ",
+    //   tags: ['origami', 'youtube', 'dragon'],
+    //   img: "img/dragon.svg",
+    //   link: "https://youtu.be/kOzWXQF8Z68"
+    // }, {
       title: "Suffix Trie",
       type: "internal_link",
-      summary: "Working through some examples from Ukkonen's lectures on suffix trees.",
+      summary: "Implemented the quadratic time suffix tree construction in Ukkonen's lectures on his algorithm.Some day I'll animate it and add more. Always been fascinated with this data structure since implementing Aho Corasick for a problem at work.",
       tags: ['algorithms', 'trie', 'D3'],
       link: "https://caseyshields.github.io/suffix"
     }, {
       title: "Transforming A-10",
       type: "external_link", // TODO figure out how to embed youtube
-      summary: "A Lego robot that transforms into an A10.",
-      tags: ['lego', 'transformer', 'thunderbolt'],
+      summary: "A Lego robot that transforms into an A10. Deceptively simple. Carefully designed to avoid 'shells' or 'backpack' mechanisms, minimised part number and cost, maximized the number of affordable color schemes, compromised between robot and vehicle proportions, while making it reasonably durable enough to actually play with!",
+      tags: ['lego', 'transformer', 'a10', 'thunderbolt'],
       img: "img/thunderbolt.png",
       link: "https://rebrickable.com/mocs/MOC-25799/deceptibot/transforming-a10-thunderbolt/"
     }, {
       title: "Origami Shadow Boxes",
       type: "external_link",
-      summary: "My Etsy store. I sell origami shadow boxes. ",
+      summary: "Etsy store for my origami discoveries. Way too much work, and it's not worth any money, sadly. But still, I think these boxes really capture something; If a model is done 'right', you can't change the shape of an ear without changing every other bodily proportion. The whole geometry has a necessary balance. putting the final model against the crease pattern really gets this across I think.",
       tags: ["origami", "art", "store"],
       img: "",
       link: "https://www.etsy.com/shop/CaseyOrigami"
     }, {
       title: "Henderson Origami Club",
       type: "external_link",
-      summary: "A meetup club I helped found and teach at",
+      summary: "Tina Stergios and I met at the Pacific Coast Origami convention and we both lamented the lack of Origami clubs in Vegas. So we started one! Over time other enthusiasts like Katherine Mullay have joined in to help teach. It's been a lot of fun to share one of my favorite hobbies in a way that's free and open to all. ",
       tags: ["origami", "teaching", "meetup"],
       img: "",
       link: "https://www.meetup.com/Origami-Meetup-Henderson/"
     }, {
-      title: "Rebrickable Gallery",
-      type: "external_link",
-      summary: "My rebrickable gallery where I share instructions for the models I've made",
-      tags: ["Lego", "MOC", "instructions"],
-      img: "",
-      link: "https://rebrickable.com/users/deceptibot/mocs/"
-    }, {
       title: "Orion Star Hunter",
       type: "external_link",
-      summary: "A command line program that lets you search star catalogs, extrapolate thier position using Novas, then asynchronously direct sensors on a network at them.",
+      summary: "A command line program that lets you search star catalogs, extrapolate thier position using Novas, then asynchronously direct sensors on a network at them. Thank goodness for the USNO. I still don't understand half the things they're calculating.",
       tags: ["astronomy", "C", "Novas", "FK6"],
       img: "",
       link: "https://github.com/caseyshields/Orion"
