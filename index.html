@@ -4,37 +4,42 @@
         <title>Shields</title>
         <link rel="stylesheet" type="text/css" href="./index.css">
         <style>
-            /* main {
-                display: grid;
-                grid-template-columns: var( --margin ) auto;
-            } */
             body {
                 background-color: var( --primary );
             }
             nav.tags {
+                float: left;
                 position: sticky;
                 top: calc( 2 * var( --gap ) + 1em);
-                float: left;
                 width: calc( 2 * var( --margin ));
-                /* ugh, need to fix banner sizing to something more explicit... */
                 height: calc( 100vh - 2 * var( --gap ) - 1em );
-                /* background-color: var( --primary ); */
+                overflow: hidden;
                 background-color: none;
                 display: flex;
                 flex-direction: column;
-            }
+                align-items: center;
+            } /** Not even God knows what you're doing McLane! */
+
             div.switch {
+                width: 70%;
+                margin-top: 0.5em;
+                padding: 0.25em;
+                color: var(--primary);
                 background-color: var( --secondary );
-                border-radius: var( --radius );
-                /* margin: var( --gap ); */
-                align-content: center;
-                display: flex;
-                justify-content: center;
+                border: var(--secondary) 0 solid;
+                border-radius: var(--radius);
+                text-align: center;
             }
-            .switch > span {
+            div.or {
+                text-decoration: none;
+                color: var(--secondary);
                 background-color: var( --primary );
-                color: var( --secondary );
-                border-radius: var( --radius );
+            }
+            div.and {
+                /* text-decoration: underline overline 0.125em; */
+            }
+            div.not {
+                text-decoration: line-through wavy var(--tertiary) 0.2em;
             }
             /* Weird prob; when cards fit within 100vh, bottom banner indents into grid and floats in the middle of the screen... */
         </style>
@@ -84,12 +89,12 @@
 
             <!-- Navigation bar holds filters and sorting options for cards -->
             <nav class="tags">
-                <div class="switch">
+                <!-- <div class="switch">
                     <span></span>
                 </div>
                 <div class="switch">
                     <span></span>
-                </div>
+                </div> -->
             </nav>
 
             <!-- Where the site content is displayed -->
