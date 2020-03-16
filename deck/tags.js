@@ -19,8 +19,7 @@ export default function(selection) {
         // find all unique keys and count their occurances, only including items with one of the selected tags
         let counts = [];
         data.forEach(item => {
-            if (ands.length==0 
-                || ands.every(and=>item.tags.includes(and))) {
+            if (ands.every(and=>item.tags.includes(and))) {
                 item.tags.forEach( (tag) => {
                     if (counts[tag]==undefined)
                         counts[tag] = 1;
@@ -50,7 +49,7 @@ export default function(selection) {
     }
 
     function filter(item) {
-        return ands.length==0 ? true : ands.every( and=>item.tags.includes(and) );
+        return ands.every( and=>item.tags.includes(and) );
     }
 
     tags.order = function() {
