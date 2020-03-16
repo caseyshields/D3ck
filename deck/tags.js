@@ -9,6 +9,8 @@
 */
 export default function(selection) {
 
+    let switches = selection.selectAll('.switch');
+
     function tags(data) {
 
         // find all unique keys and count their occurances
@@ -27,16 +29,44 @@ export default function(selection) {
             key.push( {tag, count:counts[tag]} );
 
         // D3 General Update Pattern applied to tag switches
-        let switches = selection.selectAll('.switch')
+        switches = switches//selection.selectAll('.switch')
             .data(key);
         switches.exit().remove();
         let newswitches = switches.enter()
             .append('div')
-            .classed('switch', true);
-        newswitches.append('span')
-                .html( d => d.tag );
+            .classed('switch', true)
+            .classed('or', true)
+            .on( 'click', toggle )
+            .html( d => d.tag );
         switches = newswitches.merge(switches);
     }
 
+    tags.filter = function(d) {
+        // find all 'and' tags
+        // find all 'not' tags
+        //reject if no 'and' tags match
+        //reject if any 'not' tags match
+        //otherwise accept
+    }
+
+    tags.order = function() {
+        // matching and tags: +1
+    }
+
+    function toggle(d) {
+        let toggle = d3.select(this);
+        if (toggle.classed('or')) {
+            toggle.classed('or', false);
+            toggle.classed('and', true);
+        } else if (toggle.classed('and')) {
+            toggle.classed('and', false);
+            toggle.classed('not', true);
+        } else if (toggle.classed('not')) {
+            toggle.classed('not', false);
+            toggle.classed('or', true);
+        }
+    }
+
+    
     return tags;
 }
