@@ -10,17 +10,23 @@
 export default function(selection) {
 
     let switches = selection.selectAll('.switch');
+    let ands = [];
 
     function tags(data) {
 
-        // find all unique keys and count their occurances
+        selection.datum( data );
+
+        // find all unique keys and count their occurances, only including items with one of the selected tags
         let counts = [];
         data.forEach(item => {
-            item.tags.forEach( (tag) => {
-                if (counts[tag]==undefined)
-                    counts[tag] = 1;
-                else counts[tag]++;
-            })
+            if (ands.length==0 
+                || ands.every(and=>item.tags.includes(and))) {
+                item.tags.forEach( (tag) => {
+                    if (counts[tag]==undefined)
+                        counts[tag] = 1;
+                    else counts[tag]++;
+                })
+            }
         });
         
         // convert them to an array D3 can use
@@ -30,7 +36,9 @@ export default function(selection) {
 
         // D3 General Update Pattern applied to tag switches
         switches = switches//selection.selectAll('.switch')
-            .data(key);
+            .data(key, function(d) {
+                return !d ? 'dummy' : d.tag;}
+            );
         switches.exit().remove();
         let newswitches = switches.enter()
             .append('div')
@@ -41,12 +49,8 @@ export default function(selection) {
         switches = newswitches.merge(switches);
     }
 
-    tags.filter = function(d) {
-        // find all 'and' tags
-        // find all 'not' tags
-        //reject if no 'and' tags match
-        //reject if any 'not' tags match
-        //otherwise accept
+    function filter(item) {
+        return ands.length==0 ? true : ands.every( and=>item.tags.includes(and) );
     }
 
     tags.order = function() {
@@ -56,15 +60,17 @@ export default function(selection) {
     function toggle(d) {
         let toggle = d3.select(this);
         if (toggle.classed('or')) {
+            ands.push( d.tag );
             toggle.classed('or', false);
             toggle.classed('and', true);
-        } else if (toggle.classed('and')) {
+        }
+        else if (toggle.classed('and')) {
+            ands.splice( ands.findIndex( and=>and.tag==d.tag), 1 );
             toggle.classed('and', false);
-            toggle.classed('not', true);
-        } else if (toggle.classed('not')) {
-            toggle.classed('not', false);
             toggle.classed('or', true);
         }
+        // refresh the display using the cached data
+        tags( selection.datum() );
     }
 
     
