@@ -2,7 +2,7 @@
 
 :root {
     --primary: #F0F0F0;
-    --secondary: #a5b39a;
+    --secondary: #95a38a;
     --tertiary: #add8e6;
 
     --radius: 0.5em;
@@ -108,10 +108,9 @@ footer {
     width : 100%;
 }
 
-/** TODO I got to figure out where I'm going to store my images... */
 .card > img {
     display: none;
-}
+} /** TODO I got to figure out where I'm going to store my images... */
 
 .card > div {
     grid-area: 2 / 1 / 3 / 2;
@@ -176,6 +175,9 @@ footer {
     margin-top: 1em;
 } */
 
+/** functional style rules */
+
+.hide { display: none; }
 /* .c { justify-self: center; align-self: center; }
 .n { justify-self: center; align-self: start; }
 .ne { justify-self: right; align-self: start; }

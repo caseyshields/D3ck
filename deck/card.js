@@ -10,12 +10,14 @@ export default function(deck, selection) {
     ``` json
         [
             {
+                // required;
                 title: "String",
                 type: "[ internal_link | external_link ]",
                 summary: "A short paragraph description"
                 tags: [ "collection", "of", "related", "topics" ]
                 img: "A URL to a representative image"
-                link: "For _link media types, a URL to the page"
+                // media specific types;
+                link: "For '*_link' media types, a URL to the page"
             }
             // followed by more entries
         ]
@@ -50,6 +52,7 @@ export default function(deck, selection) {
                 // populate it with a link and image
                 article.append('a')
                     .attr('href', entry.link)
+                    .attr('target', '_blank')
                     .html(entry.title);
                 article.append('img')
                     .attr('src', entry.img);
