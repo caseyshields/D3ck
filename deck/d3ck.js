@@ -13,8 +13,6 @@ export default function () {
     let dispatch = d3.dispatch( 'navigate', 'preview', 'filter', 'order' );
 
     return {
-        // Card, 
-        // Frame,
         media_types,
         event_types,
         dispatch    
