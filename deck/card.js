@@ -73,7 +73,11 @@ export default function(deck, selection) {
             });
         cards = newcards.merge(cards)
                 // apply the 'hide' style if the card if it is filtered
-                .classed('hide', (d)=>!filter(d) );
+                .attr( 'class', function(item) {
+                    if (filter(item)) return 'card';
+                    else return 'hide card';
+                });
+                //.classed('hide', (d)=>!filter(d) );
     }
 
     // Event prototypes dispatched by this component

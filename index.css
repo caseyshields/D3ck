@@ -34,7 +34,7 @@ html {
     background-color: var( --secondary );
 }
 
-.hide, article.hide { display: none; }
+.hide { display: none; }
 
 header {
     position: sticky;
