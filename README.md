@@ -16,7 +16,8 @@ tasks
  - [ ] wait for the iframe to load before showing it
  - [ ] fix the dang shadow effect z height
  - [ ] make card component lazy load images, swap image w/description on mouseover
-
+ - [ ] add sort controls; chronological or tag relevance
+ 
  design
  - [ ] break up d3 module dependencies
  - [ ] make deck into a hierarchical component as in atlas project
@@ -24,6 +25,8 @@ tasks
  - [ ] investigate static site generation
  - [ ] consider how the UI might display back-end data too large to fit in memory
  - [ ] modularize styling for components/themes
+ - [ ] webmentions
+ - [ ] syndication automation
 
 
 

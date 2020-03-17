@@ -1,8 +1,4 @@
 /** Entry point for the D3ck framework. */
-
-// import Card from './card.js';
-// import Frame from './card.js'; // Probably don't want to force the user to download more than they need too...
-
 export default function () {
 
     /** Media types that have corresponding display components */
