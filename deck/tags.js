@@ -19,13 +19,13 @@ export default function(deck, selection) {
         // find all unique keys and count their occurances, only including items with one of the selected tags
         let counts = [];
         data.forEach(item => {
-            if (filter(item)) {
-                item.tags.forEach( (tag) => {
-                    if (counts[tag]==undefined)
-                        counts[tag] = 1;
-                    else counts[tag]++;
-                })
-            }
+            let ignored = !filter(item);
+            item.tags.forEach( (tag) => {
+                if (counts[tag]==undefined)
+                    counts[tag] = 0;
+                if (!ignored)
+                    counts[tag]++;
+            });
         });
         
         // convert them to an array D3 can use
@@ -45,7 +45,15 @@ export default function(deck, selection) {
             .classed('or', true)
             .on( 'click', toggle )
             .html( d => d.tag );
-        switches = newswitches.merge(switches);
+        switches = newswitches.merge(switches)
+            .style( 'display', function(item) {
+                return (item.count>0) ? null : 'none';
+            });
+            // .attr('class', function(item) {
+            //     if (filter(item)) return 'switch';
+            //     else return 'hide switch';
+            // })
+            // .classed( 'or', true );
     }
 
     tags.order = function() {
