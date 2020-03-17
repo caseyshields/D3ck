@@ -46,14 +46,14 @@
         </header>
 
         <!-- Navigation bar holds filters and sorting options for cards -->
-        <nav class="tags">
-            <div class="switch">
+        <aside class="toggles">
+            <div class="tag">
             </div>
-            <div class="switch">
+            <div class="tag">
             </div>
-            <div class="switch">
+            <div class="tag">
             </div>
-        </nav>
+        </aside>
 
         <!-- Where the site content is displayed -->
         <section class="deck">
@@ -137,7 +137,7 @@
             frame({});
 
             // add the tag toggles and wire them into the application
-            let nav = d3.select('nav.tags');
+            let nav = d3.select('.toggles');
             let tags = Tags(deck, nav);
             tags(content);
             cards.filter( tags.filter );

@@ -1,19 +1,38 @@
-/** A Search component provides a way to filter and order articles. 
- * The markup looks like;
-```html
-<nav>
-    <div><span> ${tags[n]} </span></div>
-    <!-- div created for each unique tag in the dataset -->
-</nav>
-```
-*/
+/** Creates a Tag Toggle component, which provides a way to filter dtaa items. 
+ * @param {Object} deck The Component framework where you can register and emit events
+ * @param {Object} selection A D3 selection where the component's markup will be added, or existing markup will be comandeered
+ * @return {Object} the Tags component
+ */
 export default function(deck, selection) {
 
-    let switches = selection.selectAll('.switch');
+    // cached selection of tag element
+    let toggles = selection.selectAll('.tag');
+
+    // list of selected tags
     let ands = [];
 
+    /** The render method.
+     * It takes an array of data items must contain an array of tags;
+    ``` json
+        [
+            {
+                // required;
+                tags: [ "collection", "of", "related", "topics" ]
+                // ...
+            }
+            // followed by more entries
+        ]
+    ```
+    * The resulting markup looks like;
+    ```html
+    <!-- root selection -->
+        <div class="tag"> ${tags[n]} </div>
+        <!-- divs created for each unique tag in the dataset -->
+    <!-- root selection -->
+    ``` */
     function tags(data) {
 
+        // cache a reference to the data at the root selection
         selection.datum( data );
 
         // find all unique keys and count their occurances, only including items with one of the selected tags
@@ -33,25 +52,25 @@ export default function(deck, selection) {
         for (let tag in counts)
             key.push( {tag, count:counts[tag]} );
 
-        // D3 General Update Pattern applied to tag switches
-        switches = switches//selection.selectAll('.switch')
+        // D3 General Update Pattern applied to tag toggles
+        toggles = toggles
             .data(key, function(d) {
                 return !d ? 'dummy' : d.tag;}
             );
-        switches.exit().remove();
-        let newswitches = switches.enter()
+        toggles.exit().remove();
+        let newtogglees = toggles.enter()
             .append('div')
-            .classed('switch', true)
+            .classed('tag', true)
             .classed('or', true)
             .on( 'click', toggle )
             .html( d => d.tag );
-        switches = newswitches.merge(switches)
+        toggles = newtogglees.merge(toggles)
             .style( 'display', function(item) {
                 return (item.count>0) ? null : 'none';
             });
             // .attr('class', function(item) {
-            //     if (filter(item)) return 'switch';
-            //     else return 'hide switch';
+            //     if (filter(item)) return 'toggle';
+            //     else return 'hide toggle';
             // })
             // .classed( 'or', true );
     }
@@ -66,6 +85,7 @@ export default function(deck, selection) {
         return ands.every( and=>item.tags.includes(and) );
     }
 
+    /** toggles the clicked tag state between 'or' and 'and'. */
     function toggle(d) {
         // update the tag list and toggle the styling
         let toggle = d3.select(this);
@@ -87,6 +107,5 @@ export default function(deck, selection) {
         deck.dispatch.call('filter', tags, d);
     }
 
-    
     return tags;
 }

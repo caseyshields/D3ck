@@ -174,7 +174,7 @@ footer {
   }
 
 /** Styling for tag toggle panel */
-.tags {
+.toggles {
     float: left;
     position: sticky;
     top: calc( 2 * var( --gap ) + 1em);
@@ -187,7 +187,7 @@ footer {
     align-items: center;
 } /** Not even God knows what you're doing McLane! */
 
-.switch {
+.tag {
     width: 70%;
     margin-top: 0.5em;
     padding: 0.25em;
