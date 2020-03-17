@@ -2,30 +2,28 @@
 
 D3 Component Kit.
 
-A collection of D3 UI components. Generated markup is clean, and styling is minimalist and interchangeable.
+A collection of D3 UI components.
+They basically apply the general update pattern to CMS data to generate clean markup.
+Styling is meant to be interchangeable in the manner of CSS Zen Garden.
 
-I recently realized I like writing in D3 rather than any reactive, templated frameworks.
-Granted, I'm working at a ridiculously tiny scale, but I can't shake the feeling.
-Apart from being the defacto standard for web data visualization and inheritor of the protoviz library, D3 also has;
- 
- - concise and powerful DOM manipulation
- - event dispatch utilities
- - no aukward tooling chains or precompiling
+As a first experiment I rewrote my Vue card deck components in a single sitting, and arrived at something much more concise. Not as powerful as Vue, but I don't have to deal with templates or build tools. Plus I can remove another dependency since I usually am already using D3 in my web projects.
 
-I was able to rewrite my vue card deck components in a single sitting, and arrived at something much more concise.
-
-TODO
+tasks
  - [x] add a modal component
+ - [x] make components comunicate with the app using dispatch
  - [x] make an external/internal link distinction and make the modal behave appropriately
+ - [x] add a tag toggles component to the filter/navigation.
  - [ ] wait for the iframe to load before showing it
  - [ ] fix the dang shadow effect z height
- - [ ] add a tag toggles component to the filter/navigation.
- - [ ] figure out where to host images and how to optimize them
  - [ ] make card component lazy load images, swap image w/description on mouseover
- - [ ] use D3's state management
- - [x] make components comunicate with the app using dispatch
+
+ design
+ - [ ] break up d3 module dependencies
+ - [ ] make deck into a hierarchical component as in atlas project
+ - [ ] figure out where to host images and how to optimize them
  - [ ] investigate static site generation
- - [ ] incorporate the rest of the D3 components I've made over the years
+ - [ ] consider how the UI might display back-end data too large to fit in memory
+ - [ ] modularize styling for components/themes
 
 
 

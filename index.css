@@ -15,6 +15,7 @@ html {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    background-color: var( --primary );
 }
 
 *, :before, :after {
@@ -34,15 +35,14 @@ html {
     background-color: var( --secondary );
 }
 
-.hide { display: none; }
-
 header {
     position: sticky;
     top: 0;
 }
 footer {
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    left:0; right:0;
 }
 
 .banner {
@@ -84,6 +84,8 @@ footer {
     padding: var( --margin );
     /* background-color: var(--primary); */
     background-color: none;
+
+    /* height: calc( 100vh - 2 * var( --gap ) - 1em ); */
   }
 
 /* Card Styling */
@@ -171,9 +173,40 @@ footer {
     100% { opacity:1.0; }
   }
 
-  /* * + * {
-    margin-top: 1em;
-} */
+/** Styling for tag toggle panel */
+.tags {
+    float: left;
+    position: sticky;
+    top: calc( 2 * var( --gap ) + 1em);
+    width: calc( 2 * var( --margin ));
+    height: calc( 100vh - 2 * var( --gap ) - 1em );
+    overflow: hidden;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} /** Not even God knows what you're doing McLane! */
+
+.switch {
+    width: 70%;
+    margin-top: 0.5em;
+    padding: 0.25em;
+    border: var(--secondary) 0 solid;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.or {
+    color: var(--secondary);
+    background-color: var( --primary );
+}
+
+.and {
+    color: var(--primary);
+    background-color: var( --secondary );
+    /* text-decoration: underline overline 0.125em; */
+    /* text-decoration: line-through wavy var(--tertiary) 0.2em; */
+}
 
 /** functional style rules */
 

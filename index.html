@@ -3,46 +3,6 @@
     <head>
         <title>Shields</title>
         <link rel="stylesheet" type="text/css" href="./index.css">
-        <style>
-            body {
-                background-color: var( --primary );
-            }
-            nav.tags {
-                float: left;
-                position: sticky;
-                top: calc( 2 * var( --gap ) + 1em);
-                width: calc( 2 * var( --margin ));
-                height: calc( 100vh - 2 * var( --gap ) - 1em );
-                overflow: hidden;
-                background-color: none;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            } /** Not even God knows what you're doing McLane! */
-
-            div.switch {
-                width: 70%;
-                margin-top: 0.5em;
-                padding: 0.25em;
-                color: var(--primary);
-                background-color: var( --secondary );
-                border: var(--secondary) 0 solid;
-                border-radius: var(--radius);
-                text-align: center;
-            }
-            div.or {
-                text-decoration: none;
-                color: var(--secondary);
-                background-color: var( --primary );
-            }
-            div.and {
-                /* text-decoration: underline overline 0.125em; */
-            }
-            div.not {
-                text-decoration: line-through wavy var(--tertiary) 0.2em;
-            }
-            /* Weird prob; when cards fit within 100vh, bottom banner indents into grid and floats in the middle of the screen... */
-        </style>
     </head>
     <body>
 
@@ -85,53 +45,48 @@
             <a href="https://www.instagram.com/caseyorigami/"> Instagram </a>
         </header>
 
-        <!--  -->
-        <!-- <main> -->
+        <!-- Navigation bar holds filters and sorting options for cards -->
+        <nav class="tags">
+            <div class="switch">
+            </div>
+            <div class="switch">
+            </div>
+            <div class="switch">
+            </div>
+        </nav>
 
-            <!-- Navigation bar holds filters and sorting options for cards -->
-            <nav class="tags">
-                <div class="switch">
-                    <span></span>
-                </div>
-                <div class="switch">
-                    <span></span>
-                </div>
-            </nav>
-
-            <!-- Where the site content is displayed -->
-            <section class="deck">
-                <article class="card">
-                    <a></a>
-                    <div></div>
-                    <ul>
-                        <li></li><li></li><li></li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <a></a>
-                    <div></div>
-                    <ul>
-                        <li></li><li></li><li></li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <a></a>
-                    <div></div>
-                    <ul>
-                        <li></li><li></li><li></li>
-                    </ul>
-                </article>
-                <article class="card">
-                    <a></a>
-                    <div></div>
-                    <ul>
-                        <li></li><li></li><li></li>
-                    </ul>
-                </article>
-                <!-- these are removable placeholders that matches the markup the card component generates. -->
-            </section>
-
-        <!-- </main> -->
+        <!-- Where the site content is displayed -->
+        <section class="deck">
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
+            <article class="card">
+                <a></a>
+                <div></div>
+                <ul>
+                    <li></li><li></li><li></li>
+                </ul>
+            </article>
+            <!-- these are removable placeholders that matches the markup the card component generates. -->
+        </section>
 
         <!-- For displaying links in a dismissable modal. -->
         <section class="modal hide">
@@ -147,8 +102,8 @@
 
         <!-- copyright and disclaimers -->
         <footer class="banner">
-            <sub>Made with <a href="">D3CK</a></sub>
-            <sub>2020</sub>
+            <sub><a href="">source</a></sub>
+            <sub>&#169; 2020</sub>
         </footer>
         
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
@@ -164,7 +119,7 @@
             let content = getContent();
             console.log(content);
 
-            // Create the framework's context, which includes a dispatch for component events
+            // Create the framework's context, which includes a dispatch for components' events
             let deck = D3ck();
 
             // for example, here we handle a 'navigate' event by changing the browser URL
