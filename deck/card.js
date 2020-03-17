@@ -68,7 +68,9 @@ export default function(deck, selection) {
                     // which will also display the item's media according to it's type on a click
                     .on('click', clicker);
             });
-        cards = newcards.merge(cards);
+        cards = newcards.merge(cards)
+                // apply the 'hide' style if the card if it is filtered
+                .classed('hide', (d)=>!filter(d) );
     }
 
     // Event prototypes dispatched by this component
@@ -88,6 +90,17 @@ export default function(deck, selection) {
     }
     // TODO make behavior more configurable? Per media type?
     // TODO make Component's register events with dispatch at construction?
+
+    /** D3 style mutator for filter predicate.
+     * When the Cards render, the 'hide' style will be applied to any card whose data the predicate evaluates to false.*/
+    card.filter = function(predicate) {
+        if (predicate==undefined)
+            return filter;
+        filter = predicate;
+        return card;
+    }
+    // the default filter simply accepts everything
+    let filter = (d)=>true;
 
     return card;
 }

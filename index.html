@@ -89,12 +89,12 @@
 
             <!-- Navigation bar holds filters and sorting options for cards -->
             <nav class="tags">
-                <!-- <div class="switch">
+                <div class="switch">
                     <span></span>
                 </div>
                 <div class="switch">
                     <span></span>
-                </div> -->
+                </div>
             </nav>
 
             <!-- Where the site content is displayed -->
@@ -180,9 +180,14 @@
             let frame = Frame(deck, d3.select('.modal'));
             frame({});
 
+            // add the tag toggles and wire them into the application
             let nav = d3.select('nav.tags');
-            let tags = Tags(nav);
+            let tags = Tags(deck, nav);
             tags(content);
+            cards.filter( tags.filter );
+            deck.dispatch.on('filter', function(d) {
+                cards(content);
+            });
 
             // this shadow effect might be eye-bleeding. it is also neat.
             d3.select('body').on('mousemove', function(item, index, selection) {

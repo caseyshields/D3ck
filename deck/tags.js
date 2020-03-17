@@ -7,7 +7,7 @@
 </nav>
 ```
 */
-export default function(selection) {
+export default function(deck, selection) {
 
     let switches = selection.selectAll('.switch');
     let ands = [];
@@ -19,7 +19,7 @@ export default function(selection) {
         // find all unique keys and count their occurances, only including items with one of the selected tags
         let counts = [];
         data.forEach(item => {
-            if (ands.every(and=>item.tags.includes(and))) {
+            if (filter(item)) {
                 item.tags.forEach( (tag) => {
                     if (counts[tag]==undefined)
                         counts[tag] = 1;
@@ -48,15 +48,18 @@ export default function(selection) {
         switches = newswitches.merge(switches);
     }
 
-    function filter(item) {
-        return ands.every( and=>item.tags.includes(and) );
-    }
-
     tags.order = function() {
         // matching and tags: +1
     }
 
+    /** A predicate which applies an and rule for each currently selected tag */
+    tags.filter = filter;
+    function filter(item) {
+        return ands.every( and=>item.tags.includes(and) );
+    }
+
     function toggle(d) {
+        // update the tag list and toggle the styling
         let toggle = d3.select(this);
         if (toggle.classed('or')) {
             ands.push( d.tag );
@@ -68,8 +71,12 @@ export default function(selection) {
             toggle.classed('and', false);
             toggle.classed('or', true);
         }
+
         // refresh the display using the cached data
         tags( selection.datum() );
+
+        // emit a filter event
+        deck.dispatch.call('filter', tags, d);
     }
 
     
