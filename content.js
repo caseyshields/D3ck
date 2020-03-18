@@ -73,7 +73,7 @@ getContent = function () {
     }, {
       title: "Henderson Origami Club",
       type: "external_link",
-      summary: "Tina Stergios and I met at the Pacific Coast Origami convention and we both lamented the lack of Origami clubs in Vegas. So we started one! Over time other enthusiasts like Katherine Mullay have joined in to help teach. It's been a lot of fun to share one of my favorite hobbies in a way that's free and open to all. ",
+      summary: "Tina Stergios and I met at the Pacific Coast Origami convention and we both lamented the lack of Origami clubs in Vegas. So we started one! Over time other enthusiasts like Katherine Mullay have joined in to help teach. It's been a lot of fun to share one of my favorite hobbies at the local library.",
       tags: ["origami", "teaching", "meetup"],
       img: "",
       link: "https://www.meetup.com/Origami-Meetup-Henderson/"
@@ -84,6 +84,13 @@ getContent = function () {
       tags: ["astronomy", "C", "Novas"],
       img: "",
       link: "https://github.com/caseyshields/Orion"
+    }, {
+      title: "Auspex",
+      type: "external_link",
+      summary: "WIP. A rangefinder for table top games. All the documentation is written in the argot of the Martian Machine Cult. It's feels oddly appropriate since I am profoundly ignorant of hardware. I merely upload the blessed procedural litanies via binaric canting.",
+      tags: ["wargamming", "C", "embedded"],
+      img: "",
+      link: "https://github.com/caseyshields/auspex"
     }
   ]
 };
