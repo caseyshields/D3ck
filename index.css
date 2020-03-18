@@ -1,4 +1,4 @@
-/* General */
+/* Resets and variables */
 
 :root {
     --primary: #F0F0F0;
@@ -74,6 +74,7 @@ footer {
     border-radius: var( --radius );
 } */
 
+/* Card Styling */
 .deck {
     display: grid;
     grid-auto-flow: row;
@@ -86,9 +87,7 @@ footer {
     background-color: none;
 
     /* height: calc( 100vh - 2 * var( --gap ) - 1em ); */
-  }
-
-/* Card Styling */
+}
 
 .card {
     display: grid;

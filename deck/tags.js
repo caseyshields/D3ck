@@ -51,6 +51,7 @@ export default function(deck, selection) {
         let key = []
         for (let tag in counts)
             key.push( {tag, count:counts[tag]} );
+        // TODO should we make this available to user?
 
         // D3 General Update Pattern applied to tag toggles
         toggles = toggles
@@ -85,6 +86,10 @@ export default function(deck, selection) {
         return ands.every( and=>item.tags.includes(and) );
     }
 
+    tags.includes = function(tag) {
+        return ands.includes(tag);
+    }
+    
     /** toggles the clicked tag state between 'or' and 'and'. */
     function toggle(d) {
         // update the tag list and toggle the styling
