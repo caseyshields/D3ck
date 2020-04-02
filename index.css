@@ -1,15 +1,25 @@
 /* Resets and variables */
 
 :root {
-    --primary: #F0F0F0;
-    --secondary: #95a38a;
-    --tertiary: #add8e6;
-
     --radius: 0.5em;
     --gap: 1.0em;
     --banner: 2.0em;
     --margin: 4em;
 }
+@media all and (orientation: landscape) {
+    :root {
+        --primary: #F0F0F0;
+        --secondary: #95a38a;
+        --tertiary: #add8e6;
+    }
+}
+@media all and (orientation: portrait) {
+    :root {
+        --primary: #F0F0F0;
+        --secondary: #7da8e6;
+        --tertiary: #95a38a;
+    }
+}/* Change the color so I can tell what mode I'm in */
 
 html {
     box-sizing: border-box;
@@ -39,11 +49,13 @@ header {
     position: sticky;
     top: 0;
 }
-footer {
-    position: fixed;
-    bottom: 0;
-    left:0; right:0;
-}
+@media all and (orientation: landscape) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        left:0; right:0;
+    }
+} /* I need this to fix float shenanigans on small filter results sets. */
 
 .banner {
     display: grid;
@@ -173,26 +185,46 @@ footer {
   }
 
 /** Styling for tag toggle panel */
-.toggles {
-    float: left;
-    position: sticky;
-    top: calc( 2 * var( --gap ) + 1em);
-    width: calc( 2 * var( --margin ));
-    height: calc( 100vh - 2 * var( --gap ) - 1em );
-    overflow: hidden;
-    background-color: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} /** Not even God knows what you're doing McLane! */
-
-.tag {
-    width: 70%;
-    margin-top: 0.5em;
-    padding: 0.25em;
-    border: var(--secondary) 0 solid;
-    border-radius: var(--radius);
-    text-align: center;
+@media all and (orientation: landscape) {
+    .toggles {
+        float: left;
+        position: sticky;
+        top: calc( 2 * var( --gap ) + 1em);
+        width: calc( 2 * var( --margin ));
+        height: calc( 100vh - 2 * var( --gap ) - 1em );
+        overflow: hidden;
+        background-color: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } /** Not even God knows what you're doing McLane! */
+    .tag {
+        width: 70%;
+        margin-top: 0.5em;
+        padding: 0.25em;
+        border: var(--secondary) 0 solid;
+        border-radius: var(--radius);
+        text-align: center;
+    }
+}
+@media all and (orientation: portrait) {
+    .toggles {
+        width: 100%;
+        background-color: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-items: center;
+    }
+    .tag {
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        padding: 0.25em;
+        border: var(--secondary) 0 solid;
+        border-radius: var(--radius);
+        text-align: center;
+    }
 }
 
 .or {
