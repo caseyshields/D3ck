@@ -135,6 +135,9 @@ header {
     background-color: var( --primary );
     color: var( --secondary );
 }
+.card > div:hover {
+    cursor: pointer;
+}
 
 .card > ul {
     grid-area: 1 / 2 / 3 / 3;
@@ -214,6 +217,8 @@ header {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        padding-left: var(--margin);
+        padding-right: var(--margin);
         align-items: center;
         justify-items: center;
     }
@@ -225,6 +230,10 @@ header {
         border-radius: var(--radius);
         text-align: center;
     }
+}
+
+.tag:hover {
+    cursor: pointer;
 }
 
 .or {

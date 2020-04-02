@@ -22,7 +22,7 @@ tasks
  design
  - [ ] figure out where to host images and how to optimize them
  - [ ] add sort controls; chronological or tag relevance
- - [ ] media query for a vertical phone layout 
+ - [x] media query for a vertical phone layout 
  - [ ] make deck into a hierarchical component as in atlas project
  - [ ] investigate static site generation
  - [ ] consider how the UI might display back-end data too large to fit in memory
