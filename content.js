@@ -91,6 +91,13 @@ getContent = function () {
       tags: ["wargamming", "C", "embedded"],
       img: "",
       link: "https://github.com/caseyshields/auspex"
+    }, {
+      title: "Knight Errant",
+      type: "external_link",
+      summary: "A Questoris class Imperial Knight Errant of House Cadmus made in Lego. The chainsword has a wind up motor and all the guns use Lego shooters to fire projectile. I made the instructions and renders Stud.io and put them on Rebrickable for free.",
+      tags: ["lego", "wargamming", "instructions"],
+      img: "",
+      link: "https://rebrickable.com/mocs/MOC-38571/deceptibot/knight-errant/"
     }
   ]
 };

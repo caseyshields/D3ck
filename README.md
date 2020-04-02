@@ -17,6 +17,7 @@ tasks
  - [ ] fix the dang shadow effect z height
  - [ ] make card component lazy load images, swap image w/description on mouseover
  - [ ] break up d3 module dependencies
+ - [ ] URL arguments for tag filters
 
  design
  - [ ] figure out where to host images and how to optimize them
