@@ -2,7 +2,7 @@
 
 :root {
     --primary: #F0F0F0;
-    --secondary: #add8e6;
+    --secondary: #7da8e6;
     --tertiary: #95a38a;
 
     --radius: 0.5em;
@@ -39,11 +39,11 @@ header {
     position: sticky;
     top: 0;
 }
-footer {
+/* footer {
     position: fixed;
     bottom: 0;
     left:0; right:0;
-}
+} */
 
 .banner {
     display: grid;
@@ -174,21 +174,18 @@ footer {
 
 /** Styling for tag toggle panel */
 .toggles {
-    float: left;
-    position: sticky;
-    top: calc( 2 * var( --gap ) + 1em);
-    width: calc( 2 * var( --margin ));
-    height: calc( 100vh - 2 * var( --gap ) - 1em );
-    overflow: hidden;
+    width: 100%;
     background-color: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-} /** Not even God knows what you're doing McLane! */
+    justify-items: center;
+}
 
 .tag {
-    width: 70%;
     margin-top: 0.5em;
+    margin-left: 0.5em;
     padding: 0.25em;
     border: var(--secondary) 0 solid;
     border-radius: var(--radius);
