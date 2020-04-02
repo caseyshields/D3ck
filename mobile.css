@@ -1,0 +1,221 @@
+/* Resets and variables */
+
+:root {
+    --primary: #F0F0F0;
+    --secondary: #add8e6;
+    --tertiary: #95a38a;
+
+    --radius: 0.5em;
+    --gap: 1.0em;
+    --banner: 2.0em;
+    --margin: 4em;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    background-color: var( --primary );
+}
+
+*, :before, :after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/** Page sections */
+
+.hero {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var( --secondary );
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left:0; right:0;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: 3fr repeat( auto-fill, 1fr);
+    grid-auto-flow: column;
+    padding: var( --gap );
+    z-index: 9001;
+    background-color: var( --secondary );
+    /* border-bottom: solid 10px #CCC; */
+}
+
+.banner > * {
+    text-align: right;
+    color: var( --primary );
+}
+
+.banner > *:first-child {
+    text-align: left;
+    color: var( --primary );
+}
+/* TODO this seems less eloquent.
+ * Try to extract some classes for these banners and headers...
+ * Maybe styles for color combinations taken from the ternary color scheme? */
+/* .label {
+    border-radius: var( --radius );
+    background-color: var( --secondary );
+    color: var( --primary );
+    border-radius: var( --radius );
+} */
+
+/* Card Styling */
+.deck {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat( auto-fill, minmax(256px, 1fr));
+    grid-auto-rows: minmax( 362px, 1fr );
+    column-gap: var( --margin );
+    row-gap: var( --margin );
+    padding: var( --margin );
+    /* background-color: var(--primary); */
+    background-color: none;
+
+    /* height: calc( 100vh - 2 * var( --gap ) - 1em ); */
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 1em auto;
+    grid-template-columns: auto 1em;
+    column-gap: var( --gap );
+    row-gap: var( --gap );
+    padding: var( --gap );
+    background-color: var( --secondary );
+    border-radius: var( --radius );
+}
+
+.card > a {
+    border-radius: var( --radius );
+    grid-area: 1 / 1 / 2 / 2;
+    color: var( --primary );
+    background-color: var( --secondary );
+    height : 100%;
+    width : 100%;
+}
+
+.card > img {
+    display: none;
+} /** TODO I got to figure out where I'm going to store my images... */
+
+.card > div {
+    grid-area: 2 / 1 / 3 / 2;
+    height : 100%;
+    width : 100%;
+    overflow : hidden;
+    border-radius: var( --radius );
+    padding: 1em;
+    background-color: var( --primary );
+    color: var( --secondary );
+}
+
+.card > ul {
+    grid-area: 1 / 2 / 3 / 3;
+    writing-mode: vertical-lr;
+    align-self: flex-start;
+    justify-self: center;
+    background-color: transparent;
+}
+
+.card li {
+    display: inline;
+    border-radius: var( --radius );
+    margin-bottom: var( --gap );
+    color: var( --primary );
+    /* display: list-item; */
+    /* list-style-type: disc; */
+}
+
+/** Styling for modal overlay. */
+.modal {
+    position: fixed;
+    top: var( --margin );
+    bottom: var( --margin );
+    left: var( --margin );
+    right: var( --margin );
+    z-index: 9002;
+    background-color: var( --primary );
+    animation: appear 1s ease;
+    overflow: hidden;
+  }
+  
+  .modal > iframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal > button {
+    position: fixed;
+    top: var( --margin );
+    right: var( --gap );
+    z-index: 9003;
+  } /* TODO fix this z-index shenanigans */
+  
+  @keyframes appear {
+    0% { opacity:0.0; }
+    100% { opacity:1.0; }
+  }
+
+/** Styling for tag toggle panel */
+.toggles {
+    float: left;
+    position: sticky;
+    top: calc( 2 * var( --gap ) + 1em);
+    width: calc( 2 * var( --margin ));
+    height: calc( 100vh - 2 * var( --gap ) - 1em );
+    overflow: hidden;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} /** Not even God knows what you're doing McLane! */
+
+.tag {
+    width: 70%;
+    margin-top: 0.5em;
+    padding: 0.25em;
+    border: var(--secondary) 0 solid;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.or {
+    color: var(--secondary);
+    background-color: var( --primary );
+}
+
+.and {
+    color: var(--primary);
+    background-color: var( --secondary );
+    /* text-decoration: underline overline 0.125em; */
+    /* text-decoration: line-through wavy var(--tertiary) 0.2em; */
+}
+
+/** functional style rules */
+
+.hide { display: none; }
+/* .c { justify-self: center; align-self: center; }
+.n { justify-self: center; align-self: start; }
+.ne { justify-self: right; align-self: start; }
+.e { justify-self: right; align-self: center; }
+.se { justify-self: right; align-self: end; }
+.s { justify-self: center; align-self: end; }
+.sw { justify-self: left; align-self: end; }
+.w { justify-self: left; align-self: center; }
+.nw { justify-self: left; align-self: start; } */
