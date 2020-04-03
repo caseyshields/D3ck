@@ -98,6 +98,13 @@ getContent = function () {
       tags: ["lego", "wargamming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-38571/deceptibot/knight-errant/"
+    }, {
+      title: "Knight Paladin",
+      type: "external_link",
+      summary: "A Questoris class Imperial Knight Paladin of House Taranis made in Lego. This one has a Battle Cannon that fire two, 6 stud-long axles in succession. I made the instructions and renders Stud.io and put them on Rebrickable for free.",
+      tags: ["lego", "wargamming", "instructions"],
+      img: "",
+      link: "https://rebrickable.com/mocs/MOC-38895/deceptibot/knight-paladin/"
     }
   ]
 };
