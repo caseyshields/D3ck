@@ -162,7 +162,7 @@ header {
     left: 0;
     right: 0;
     z-index: 9000;
-    background-color: #FFFFFF88;
+    background-color: #FFFFFF99;
     animation: appear 1s ease;
 }
 .preview > iframe {
@@ -175,10 +175,10 @@ header {
     background-color: var( --primary );
 }
   
-  @keyframes appear {
+@keyframes appear {
     0% { opacity:0.0; }
     100% { opacity:1.0; }
-  }
+}
 
 /** Styling for tag toggle panel */
 @media all and (orientation: landscape) {

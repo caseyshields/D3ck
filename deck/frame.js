@@ -1,6 +1,6 @@
 /** Iframe for internal previews. Will either initialize with existing markup or will generate its own if it can't find a match.
  ```html
-    < ... class="preview ${hide|null}">
+    < ... class="${preview hide|preview}">
         <iframe
             src="${source}"
             visible="${visible}"
@@ -25,11 +25,6 @@ export default function(deck, selection) {
                 .attr('src', '')
                 .attr('scrolling', 'yes')
                 .attr('frameborder', 0); // should be in styling?
-
-        // // create button it if it doesn't exist
-        // if (button.size()==0)
-        //     button = selection.append('button')
-        //         .html("close");
 
         // set up the close behavior
         preview.on("click", hide);

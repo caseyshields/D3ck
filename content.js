@@ -6,14 +6,14 @@ getContent = function () {
       type: "internal_link",
       summary:"One of my earliest origami designs. All fold angles are multiples of 22.5 degrees and relatively few folds are more than 2-ply. This makes it easier to retain accuracy and fold from a small square. The long limbs also make a variety of poses possible.",
       tags: ['origami', 'instructions', 'svg'],
-      img:"img/dragon_CP.svg",
+      img:"",
       link:"https://caseyshields.github.io/dragon/"
     }, {
       title: "Trie Example",
       type: "internal_link",
       summary: "Demonstrates the construction of a trie data structure as you type. The neat thing about tries is you can put millions of words in them and the retrieval time is only proportional to the length of the word you're looking for. The leaves are marked with red- that's where you would link the data associated with the key.",
       tags: ['D3', 'trie', 'algorithms'],
-      img: "img/trie.svg",
+      img: "",
       link: "https://caseyshields.github.io/trie/"
     },{
     //   title: "Henderson Gallery",
@@ -27,28 +27,28 @@ getContent = function () {
       type: "internal_link",
       summary: "Ladder diagrams are used to show messaging between actors over time, usually in protocols or software architectures. This example shows a streaming dataset and mouse interactivity.",
       tags: ['D3', 'networking', 'component'],
-      img: "img/ladder.svg",
+      img: "",
       link: "https://caseyshields.github.io/ladder/"
     },{
       title: "Star Catalog",
       type: "internal_link",
       summary: "Made a starchart component in D3 to display some of the star catalogs used in sensor calibration. This example shows the first part of FK6. You can alter the projection by dragging and zooming. Click stars to display their catalog entries.",
       tags: ['D3', 'astronomy', 'component'],
-      img: "img/stars.png",
+      img: "",
       link: "https://caseyshields.github.io/starmap/"
     },{
       title: "Nevada",
       type: "internal_link",
       summary: "Made a layered vector map component with D3. Recently I refactored it to work as a composite of simpler components to help with extensibility and maintainability. I was heavily influenced by Mike Bostock's article 'On D3 Components' and tried to apply the methodology to a composition of visual components.",
       tags: ['D3', 'cartography', 'component'],
-      img: 'img/nevada.svg',
+      img: "",
       link: "https://caseyshields.github.io/nevada/"
     }, {
       title: "Lego Railguns",
       type: "external_link",
       summary: "My brothers and I once made up a tactics game where we built Lego mecha and fired these little rubber band guns instead of rolling dice. I updated one of the designs and made instructions.",
       tags: ['lego', 'instructions', 'video'],
-      img: "img/sniperscout.png",
+      img: "",
       link: "https://rebrickable.com/mocs/MOC-34985/deceptibot/railguns/"
     }, {
       title: "Suffix Trie",
@@ -61,7 +61,7 @@ getContent = function () {
       type: "external_link", // TODO figure out how to embed youtube
       summary: "A Lego robot that transforms into an A10. Deceptively simple. Carefully designed to avoid 'shells' or 'backpack' mechanisms, minimised part number and cost, maximized the number of affordable color schemes, compromised between robot and vehicle proportions, while making it reasonably durable enough to actually play with!",
       tags: ['lego', 'instructions', 'video'],
-      img: "img/thunderbolt.png",
+      img: "",
       link: "https://rebrickable.com/mocs/MOC-25799/deceptibot/transforming-a10-thunderbolt/"
     }, {
       title: "Origami Shadow Boxes",
