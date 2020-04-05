@@ -91,23 +91,20 @@
             <!-- Instead of placeholders, you could also statically generate your first page of results... -->
         </section>
 
-        <!-- For displaying links in a dismissable modal. -->
-        <section class="modal hide">
-            <iframe
-                src=""
-                scrolling="yes"
-                frameborder="0">
-            </iframe>
-            <button>
-                close
-            </button>
-        </section>
-
         <!-- copyright and disclaimers -->
         <footer class="banner">
             <a href="https://github.com/caseyshields/d3ck">source</a>
             <span>&#169; 2020</span>
         </footer>
+        
+        <!-- For displaying links in a dismissable modal. -->
+        <section class="preview hide">
+            <iframe
+                src=""
+                scrolling="yes"
+                frameborder="0">
+            </iframe>
+        </section>
         
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
@@ -136,7 +133,7 @@
             cards(content); // invoke the render method on the content
 
             // create the preview modal, it also registers to listen to 'preview' events on construction
-            let frame = Frame(deck, d3.select('.modal'));
+            let frame = Frame(deck, d3.select('body'));
             frame({});
 
             // add the tag toggles and wire them into the application

@@ -1,21 +1,21 @@
 /** Iframe for internal previews. Will either initialize with existing markup or will generate its own if it can't find a match.
  ```html
-    <iframe
-        src="${source}"
-        visible="${visible}"
-        scrolling="yes"
-        frameborder=0>
-    </iframe>
-    <button>
-        close
-    </button>
+    < ... class="preview ${hide|null}">
+        <iframe
+            src="${source}"
+            visible="${visible}"
+            scrolling="yes"
+            frameborder=0>
+        </iframe>
+    </...>
  ```
  */
 export default function(deck, selection) {
     
-    // select the frames components
-    let iframe = selection.select('iframe');
-    let button = selection.select('button');
+    // select the frame's components
+    let preview = selection.select('.preview');
+    let iframe = preview.select('iframe');
+    // let button = selection.select('button');
 
     let frame = function() {
 
@@ -26,20 +26,20 @@ export default function(deck, selection) {
                 .attr('scrolling', 'yes')
                 .attr('frameborder', 0); // should be in styling?
 
-        // create button it if it doesn't exist
-        if (button.size()==0)
-            button = selection.append('button')
-                .html("close");
+        // // create button it if it doesn't exist
+        // if (button.size()==0)
+        //     button = selection.append('button')
+        //         .html("close");
 
         // set up the close behavior
-        button.on("click", hide)
+        preview.on("click", hide);
     }
 
     /** Navigates the iframe to the given URL, and makes the frame visible by removing the CSS class '.hide'. */
     frame.show = function( url ) {
         iframe.attr('src', url);
         // TODO display an busy symbol, wait until document is loaded, remove busy, show frame?
-        selection.classed('hide', false);
+        preview.classed('hide', false);
     }
 
     /** Hides the frame but does not change the DOM structure.
@@ -50,7 +50,7 @@ export default function(deck, selection) {
      * This is included in the sample style sheet. */
     frame.hide = hide;
     function hide( ) {
-        selection.classed('hide', true);
+        preview.classed('hide', true);
     }
 
     /** Set up the frame component to listen to preview events. */

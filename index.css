@@ -62,9 +62,7 @@ header {
     grid-template-columns: 3fr repeat( auto-fill, 1fr);
     grid-auto-flow: column;
     padding: var( --gap );
-    z-index: 9001;
     background-color: var( --secondary );
-    /* border-bottom: solid 10px #CCC; */
 }
 
 .banner > * {
@@ -157,30 +155,25 @@ header {
 }
 
 /** Styling for modal overlay. */
-.modal {
+.preview {
     position: fixed;
-    top: var( --margin );
-    bottom: var( --margin );
-    left: var( --margin );
-    right: var( --margin );
-    z-index: 9002;
-    background-color: var( --primary );
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    background-color: #FFFFFF88;
     animation: appear 1s ease;
-    overflow: hidden;
-  }
-  
-  .modal > iframe {
+}
+.preview > iframe {
     position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .modal > button {
-    position: fixed;
     top: var( --margin );
-    right: var( --gap );
-    z-index: 9003;
-  } /* TODO fix this z-index shenanigans */
+    left: var( --margin );
+    width: calc( 100vw - 2 * var(--margin) );
+    height: calc( 100vh - 2 * var( --margin ) );
+    z-index: 9001;
+    background-color: var( --primary );
+}
   
   @keyframes appear {
     0% { opacity:0.0; }
