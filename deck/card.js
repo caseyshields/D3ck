@@ -66,11 +66,11 @@ export default function(deck, selection) {
                     .html(d=>d);
 
                 // Add the summary
-                article.append('div')
-                    .html(entry.summary)
-                    // which will also display the item's media according to it's type on a click
+                let summary = (entry.type!='external_link') ? entry.summary : entry.summary+' &#x25ba';
+                let div = article.append('div')
+                    .html(summary)
                     .on('click', clicker);
-            });
+                });
         cards = newcards.merge(cards)
                 // apply the 'hide' style if the card if it is filtered
                 .attr( 'class', function(item) {

@@ -13,11 +13,16 @@ tasks
  - [x] make components comunicate with the app using dispatch
  - [x] make an external/internal link distinction and make the modal behave appropriately
  - [x] add a tag toggles component to the filter/navigation.
- - [ ] wait for the iframe to load before showing it
- - [ ] fix the dang shadow effect z height
  - [ ] make card component lazy load images, swap image w/description on mouseover
  - [ ] break up d3 module dependencies
  - [ ] URL arguments for tag filters
+
+ tweaks
+ - [ ] wait for the iframe to load before showing it
+ - [ ] fix the dang shadow effect z height
+ - [x] fix preview modal button
+ - [x] make internal/external link a visible distinction
+ - [ ] disable scroll when preview modal is open
 
  design
  - [ ] figure out where to host images and how to optimize them
