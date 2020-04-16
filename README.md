@@ -23,6 +23,7 @@ tasks
  - [x] fix preview modal button
  - [x] make internal/external link a visible distinction
  - [ ] disable scroll when preview modal is open
+ - [ ] add animated transitions for filter state changes
 
  design
  - [ ] figure out where to host images and how to optimize them

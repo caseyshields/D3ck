@@ -83,6 +83,7 @@ export default function(deck, selection) {
     /** A predicate which applies an and rule for each currently selected tag */
     tags.filter = filter;
     function filter(item) {
+        // console.log(ands);
         return ands.every( and=>item.tags.includes(and) );
     }
 
@@ -94,13 +95,15 @@ export default function(deck, selection) {
     function toggle(d) {
         // update the tag list and toggle the styling
         let toggle = d3.select(this);
+
         if (toggle.classed('or')) {
             ands.push( d.tag );
             toggle.classed('or', false);
             toggle.classed('and', true);
         }
         else if (toggle.classed('and')) {
-            ands.splice( ands.findIndex( and=>and.tag==d.tag), 1 );
+            let n = ands.findIndex( item => item===d.tag );
+            ands.splice( n, 1 );
             toggle.classed('and', false);
             toggle.classed('or', true);
         }
@@ -111,6 +114,8 @@ export default function(deck, selection) {
         // emit a filter event
         deck.dispatch.call('filter', tags, d);
     }
+    
+    tags.toggle = toggle;
 
     return tags;
 }
