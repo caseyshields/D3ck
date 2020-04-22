@@ -183,37 +183,36 @@ header {
 /** Styling for tag toggle panel */
 @media all and (orientation: landscape) {
     .toggles {
+        background-color: none;
         float: left;
         position: sticky;
         top: calc( 2 * var( --gap ) + 1em);
-        width: calc( 2 * var( --margin ));
+        width: calc( 2.5 * var( --margin ));
         height: calc( 100vh - 2 * var( --gap ) - 1em );
-        overflow: hidden;
-        background-color: none;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        overflow: hidden;
     } /** Not even God knows what you're doing McLane! */
     .tag {
-        width: 70%;
         margin-top: 0.5em;
         padding: 0.25em;
         border: var(--secondary) 0 solid;
         border-radius: var(--radius);
-        text-align: center;
+        text-align: right;
     }
 }
 @media all and (orientation: portrait) {
     .toggles {
-        width: 100%;
         background-color: none;
+        padding-left: var(--margin);
+        padding-right: var(--margin);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        padding-left: var(--margin);
-        padding-right: var(--margin);
         align-items: center;
         justify-items: center;
+        
     }
     .tag {
         margin-top: 0.5em;
@@ -234,7 +233,8 @@ header {
     width: calc( 2 * var(--radius));
     height: calc( 2 * var(--radius));
     border-radius: var(--radius);
-    margin-left: 0.1rem;
+    margin-left: 0.2rem;
+    text-align: center;
     font-size: smaller;
 }
 
