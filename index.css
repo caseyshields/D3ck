@@ -229,32 +229,27 @@ header {
     cursor: pointer;
 }
 .tag > span.count {
+    display: inline-block;
     background-color: var(--primary);
-    width: calc( 2 * var(-radius));
-    height: calc( 2 * var(-radius));
+    width: calc( 2 * var(--radius));
+    height: calc( 2 * var(--radius));
+    border-radius: var(--radius);
+    margin-left: 0.1rem;
+    font-size: smaller;
 }
 
-.or {
+/* invert tag colors depending on selection */
+.tag.or, .tag.and > .count {
     color: var(--secondary);
     background-color: var( --primary );
 }
-
-.and {
+.tag.and, .tag.or > .count {
+    background-color: var(--secondary);
     color: var(--primary);
-    background-color: var( --secondary );
-    /* text-decoration: underline overline 0.125em; */
-    /* text-decoration: line-through wavy var(--tertiary) 0.2em; */
 }
+/* text-decoration: underline overline 0.125em; */
+/* text-decoration: line-through wavy var(--tertiary) 0.2em; */
 
 /** functional style rules */
 
 .hide { display: none; }
-/* .c { justify-self: center; align-self: center; }
-.n { justify-self: center; align-self: start; }
-.ne { justify-self: right; align-self: start; }
-.e { justify-self: right; align-self: center; }
-.se { justify-self: right; align-self: end; }
-.s { justify-self: center; align-self: end; }
-.sw { justify-self: left; align-self: end; }
-.w { justify-self: left; align-self: center; }
-.nw { justify-self: left; align-self: start; } */
