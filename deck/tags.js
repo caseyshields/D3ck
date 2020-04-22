@@ -73,7 +73,9 @@ export default function(deck, selection) {
         toggles = newtoggles.merge(toggles)
             .style( 'display', function(item) {
                 return (item.count>0) ? null : 'none';
-            });
+            })
+            .sort( (a,b)=>b.count-a.count );
+            
         // update counts as filter changes...
         toggles.select('.count').html( d=>d.count );
             // .attr('class', function(item) {
