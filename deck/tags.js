@@ -59,16 +59,23 @@ export default function(deck, selection) {
                 return !d ? 'dummy' : d.tag;}
             );
         toggles.exit().remove();
-        let newtogglees = toggles.enter()
+        let newtoggles = toggles.enter()
             .append('div')
             .classed('tag', true)
             .classed('or', true)
             .on( 'click', toggle )
             .html( d => d.tag );
-        toggles = newtogglees.merge(toggles)
+
+        newtoggles.append('span')
+            .classed('count', true);
+            // .html( d => d.count );
+
+        toggles = newtoggles.merge(toggles)
             .style( 'display', function(item) {
                 return (item.count>0) ? null : 'none';
             });
+        // update counts as filter changes...
+        toggles.select('.count').html( d=>d.count );
             // .attr('class', function(item) {
             //     if (filter(item)) return 'toggle';
             //     else return 'hide toggle';
