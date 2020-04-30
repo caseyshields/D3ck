@@ -105,6 +105,13 @@ getContent = function () {
       tags: ["lego", "wargamming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-38895/deceptibot/knight-paladin/"
+    }, {
+      title: "Knight Gallant",
+      type: "external_link",
+      summary: "Yet another variation of my Imperial Knight Lego model. This one is a Questoris Gallant of House Griffith, equipped with a Stormspear Rocket pod and a light-up Paragon Gauntlet.",
+      tags: ["lego", "wargamming", "instructions"],
+      img: "",
+      link: "https://rebrickable.com/mocs/MOC-40607/deceptibot/knight-gallant/"
     }
   ]
 };
