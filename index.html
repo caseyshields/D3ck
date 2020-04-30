@@ -105,6 +105,11 @@
                 frameborder="0">
             </iframe>
         </section>
+
+        <!-- A section for displaying slideshows -->
+        <section class="slideshow">
+
+        </section>
         
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
@@ -113,6 +118,7 @@
             import Card from './deck/card.js';
             import Frame from './deck/frame.js';
             import Tags from './deck/tags.js';
+            import Slides from './deck/slides.js';
             let Window = document.defaultView
 
             // TODO in the future get this from some CMS or document database...
@@ -135,6 +141,25 @@
             // create the preview modal, it also registers to listen to 'preview' events on construction
             let frame = Frame(deck, d3.select('body'));
             frame({});
+
+            // create the slideshow modal
+            let testslides = [
+                {
+                    id: 'mcv16_1',
+                    img: '/test/MCV16_transformation_1.png',
+                    notes: '',
+                },{
+                    id: 'mcv16_2',
+                    img: '/test/MCV16_transformation_2.png',
+                    notes: '',
+                },{
+                    id: 'mcv16_3',
+                    img: '/test/MCV16_transformation_3.png',
+                    notes: '',
+                },
+            ];
+            let slides = Slides(deck, d3.select('.slideshow'));
+            slides(testslides);
 
             // add the tag toggles and wire them into the application
             let nav = d3.select('.toggles');

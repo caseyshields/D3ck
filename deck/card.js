@@ -36,6 +36,10 @@ export default function(deck, selection) {
     ``` */
     function card(data) {
 
+        // cache a ref to the data rendered at the root element
+        selection.datum(data);
+
+        // join the card entry data to a selection of cards
         let cards = selection.selectAll('article.card')
             .data(data, function(d) {
                 return !d ? 'dummy' : d.title;}
