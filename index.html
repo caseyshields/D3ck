@@ -127,7 +127,7 @@
                 Window.location.assign(d.link);
             } );
 
-            // Create the Card components, they will generate events when their entries are clicked
+            // Create the Card components which will generate events when their entries are clicked
             let section = d3.select('.deck');
             let cards = Card(deck, section);
             cards(content); // invoke the render method on the content
@@ -139,11 +139,11 @@
             // add the tag toggles and wire them into the application
             let nav = d3.select('.toggles');
             let tags = Tags(deck, nav);
-            tags(content);
-            cards.filter( tags.filter );
+            tags(content); // pass the content data to the default render method
+            cards.filter( tags.filter ); // set the card's filter to the one supplied by the tags component
             deck.dispatch.on('filter', function(d) {
                 cards(content);
-            });
+            }); // on a filter event re-render the cards.
 
             // this shadow effect might be eye-bleeding. it is also neat.
             d3.select('body').on('mousemove', function(item, index, selection) {
