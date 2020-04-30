@@ -1,5 +1,63 @@
 /** Modal window component for displaying a slideshow of images.
-``` html
+ * @param {Object} deck
+ * @param {Object} selection
+*/
+export default function(deck, selection) {
+
+    /** Renders the given array of slides.
+```js
+slides = [
+    {
+        id = '',
+        class = '',
+        src = '',
+        notes = '',
+    }
+]
+```
+```html
+<figure id="$id" class="slide ${d.class}">
+    <a href="#${d.id}">
+        <img src="${d.src}"/>
+    </a>
+    <figcaption>
+        ${d.notes}
+    </figcaption>
+</figure>
+```*/
+    let slides = function( data ) {
+
+        selection.datum( data );
+
+        let figures = selection.selectAll("figure.slide")
+            .data(data);
+
+        figures.exit()
+            .remove();
+
+        // add a figure for each data entry
+        let newfigures = figures.enter()
+                .append('figure')
+                .attr('id', d=>d.id)
+                .attr('class', d=>'slide '+d.class);
+        newfigures.append('a')
+                .attr('href', d=>d.id)
+            .append('img')
+                .attr('src', d=>d.img);
+        newfigures.append('figcaption')
+                .html(d=>d.notes);
+
+        // assume entries are never modified
+        figures = newfigures.merge(figures);
+    }
+
+    return slides;
+}
+
+//TODO lazy loading with intersection observer?
+//TODO make a compound component that accepts another component as a slide
+
+/*``` html
     <... class="${slides| slides hide}">
         
         <figure id="$id" class="${d.class}">
@@ -49,17 +107,4 @@
 
         }
     ]
-```
-*/
-
-export default function(deck, selection) {
-
-    let slides = function() {
-
-    }
-
-    return slides;
-}
-
-//TODO lazy loading with intersection observer?
-//TODO make a compound component that accepts another component as a slide
+```*/
