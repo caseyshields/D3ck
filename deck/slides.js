@@ -41,7 +41,7 @@ slides = [
                 .attr('id', d=>d.id)
                 .attr('class', d=>'slide '+d.class);
         newfigures.append('a')
-                .attr('href', d=>d.id)
+                .attr('href', d=>'#'+d.id)
             .append('img')
                 .attr('src', d=>d.img);
         newfigures.append('figcaption')
