@@ -16,14 +16,23 @@ slides = [
 ]
 ```
 ```html
-<figure id="$id" class="slide ${d.class}">
+<nav>
     <a href="#${d.id}">
-        <img src="${d.src}"/>
+        <img src="${d.thumb}" />
     </a>
-    <figcaption>
-        ${d.notes}
-    </figcaption>
-</figure>
+    <!-- thumbnail is added for each image in the sequence -->
+</nav>
+<div>
+    <figure id="$id" class="slide ${d.class}">
+        <a href="#${d.id}">
+            <img src="${d.src}"/>
+        </a>
+        <figcaption>
+            ${d.notes}
+        </figcaption>
+    </figure>
+    <!-- figure added for each entry -->
+</div>
 ```*/
     let slides = function( data ) {
 
@@ -39,7 +48,7 @@ slides = [
         let newfigures = figures.enter()
                 .append('figure')
                 .attr('id', d=>d.id)
-                .attr('class', d=>'slide '+d.class);
+                .attr('class', d=>(d.class==undefined) ? 'slide' : 'slide '+d.class);
         newfigures.append('a')
                 .attr('href', d=>'#'+d.id)
             .append('img')
