@@ -84,23 +84,13 @@ export default function(deck, selection) {
                 //.classed('hide', (d)=>!filter(d) );
     }
 
-    // Event prototypes dispatched by this component
-    let navigate = 'navigate';
-    let preview = 'preview';
-    
     /* When the user clicks on the summary, Card will emit a 'navigate' event for 'external_links' media
      * types, or it will generate a 'preview' event for 'internal_link' media types.
      * Dispatched events are given the Card component as a context and passed the data item as an argument.
      */
     function clicker(d) {
-        if (d.type=='internal_link')
-            deck.dispatch.call(preview, card, d);
-        else if (d.type=='external_link')
-            deck.dispatch.call(navigate, card, d);
-        // TODO add more media types as I think of them...
-    }
-    // TODO make behavior more configurable? Per media type?
-    // TODO make Component's register events with dispatch at construction?
+        deck.dispatch.call( d.type, card, d);
+    } // TODO make Component's register events with dispatch at construction?
 
     /** D3 style mutator for filter predicate.
      * When the Cards render, the 'hide' style will be applied to any card whose data the predicate evaluates to false.*/
