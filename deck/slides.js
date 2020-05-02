@@ -4,6 +4,18 @@
 */
 export default function(deck, selection) {
 
+    // select or create the navigation bar
+    let navigation = selection.select('nav');
+    if (navigation.size()==0) // what if more than one?
+        navigation = selection.append('nav');
+
+    let gallery = selection.select('div');
+    if(gallery.size()==0)
+        gallery = selection.append('div');
+
+    // close when the backround is clicked
+    // selection.on('click', hide);
+
     /** Renders the given array of slides.
 ```js
 slides = [
@@ -36,9 +48,11 @@ slides = [
 ```*/
     let slides = function( data ) {
 
+        // cache the dataset
         selection.datum( data );
 
-        let figures = selection.selectAll("figure.slide")
+        // use the D3 General update pattern to add figures for each entry
+        let figures = gallery.selectAll("figure.slide")
             .data(data);
 
         figures.exit()
@@ -56,8 +70,21 @@ slides = [
         newfigures.append('figcaption')
                 .html(d=>d.notes);
 
-        // assume entries are never modified
-        figures = newfigures.merge(figures);
+        // assume entries are never modified... might not be a good assumption forever
+        figures = newfigures.merge( figures );
+
+        // now add navigation links for all entries
+        let links = navigation.selectAll('a')
+            .data( data );
+
+        links.exit()
+            .remove();
+
+        links = links.enter()
+            .append('a')
+            .attr( 'href', d=>'#'+d.id )
+            .html( d=>d.id )
+            .merge( links );
     }
 
     return slides;

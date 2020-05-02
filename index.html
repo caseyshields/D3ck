@@ -107,8 +107,9 @@
         </section>
 
         <!-- A section for displaying slideshows -->
-        <section class="slideshow">
-
+        <section class="slideshow hide">
+            <nav></nav>
+            <div></div>
         </section>
         
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
@@ -143,87 +144,16 @@
             frame({});
 
             // create the slideshow modal
-            let testslides = [
-                {
-                    id: 'mcv16_1',
-                    img: '/test/MCV16_transformation_1.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_0',
-                    img: '/test/MCV16_transformation_0.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_2',
-                    img: '/test/MCV16_transformation_2.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_3',
-                    img: '/test/MCV16_transformation_3.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_4',
-                    img: '/test/MCV16_transformation_4.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_5',
-                    img: '/test/MCV16_transformation_5.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_6',
-                    img: '/test/MCV16_transformation_6.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_7',
-                    img: '/test/MCV16_transformation_7.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_8',
-                    img: '/test/MCV16_transformation_8.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_9',
-                    img: '/test/MCV16_transformation_9.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_10',
-                    img: '/test/MCV16_transformation_10.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_11',
-                    img: '/test/MCV16_transformation_11.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_13',
-                    img: '/test/MCV16_transformation_13.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_14',
-                    img: '/test/MCV16_transformation_14.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_15',
-                    img: '/test/MCV16_transformation_15.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_16',
-                    img: '/test/MCV16_transformation_16.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_17',
-                    img: '/test/MCV16_transformation_17.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_18',
-                    img: '/test/MCV16_transformation_18.png',
-                    notes: '',
-                },{
-                    id: 'mcv16_19',
-                    img: '/test/MCV16_transformation_19.png',
-                    notes: '',
-                }
-            ];
-            let slides = Slides(deck, d3.select('.slideshow'));
-            slides(testslides);
+            let slideshow = d3.select('.slideshow');
+            slideshow.on('click', d=>slideshow.classed('hide'));
+            
+            let slides = Slides(deck, slideshow);
+            slides({});
+
+            deck.dispatch.on('carousel', function(d) {
+                slideshow.classed('hide', null);
+                slides( d.slides );
+            });
 
             // add the tag toggles and wire them into the application
             let nav = d3.select('.toggles');
