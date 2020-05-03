@@ -1,4 +1,4 @@
-/* Resets and variables */
+/* Resets and variables ******************************************************/
 
 :root {
     --radius: 0.5rem;
@@ -34,7 +34,7 @@ html {
     padding: 0;
 }
 
-/** Page sections */
+/** Page sections ************************************************************/
 
 .hero {
     display: grid;
@@ -84,7 +84,7 @@ header {
     border-radius: var( --radius );
 } */
 
-/* Card Styling */
+/* Card Styling **************************************************************/
 .deck {
     display: grid;
     grid-auto-flow: row;
@@ -154,7 +154,7 @@ header {
     /* list-style-type: disc; */
 }
 
-/** Styling for modal overlay. */
+/** Styling for modal overlay. ***********************************************/
 .preview {
     position: fixed;
     top: 0;
@@ -180,7 +180,7 @@ header {
     100% { opacity:1.0; }
 }
 
-/** Styling for tag toggle panel */
+/** Styling for tag toggle panel *********************************************/
 @media all and (orientation: landscape) {
     .toggles {
         background-color: none;
@@ -250,7 +250,7 @@ header {
 /* text-decoration: underline overline 0.125em; */
 /* text-decoration: line-through wavy var(--tertiary) 0.2em; */
 
-/** Style rules for slideshow component */
+/** Style rules for slideshow component **************************************/
 
 .slideshow {
     position: fixed;
@@ -258,13 +258,30 @@ header {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: whitesmoke;
+
+    /* display: grid;
+    grid-template-rows: ;
+    TODO revise this as a grid... possibly with media query*/
+
+    background-color: #FFFFFF99;
+    animation: appear 1s ease;
 }
 
 .slideshow > nav {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
+    writing-mode: vertical-lr;
+    /* overflow-x: scroll; */
+}
+
+.slideshow > nav > a {
+    background-color: var( --secondary );
+    color: var( --primary );
+    border-radius: var( --radius );
+    padding: var( --radius );
+    margin: var(--radius );
+    font-size: smaller;
 }
 
 .slideshow > div {
@@ -279,6 +296,7 @@ header {
     /* why do none of these work as I anticipate and the mdn docs are written by malicious aliens? */
     scroll-padding-right: 15vmin;
     scroll-padding-left: 15vmin;
+
 }
 
 .slide {
@@ -287,6 +305,7 @@ header {
     width: 70vmin;
     margin-left: 5vmin;
     /*margin-right: 5vmin;*/
+
 }
 
 .slide img {
@@ -297,7 +316,9 @@ header {
 }
 
 .slide > figcaption {
-    
+    color: var( --primary );
+    background: var( --secondary );
+    border-radius: var( --radius );
 }
 
 /** functional style rules */
