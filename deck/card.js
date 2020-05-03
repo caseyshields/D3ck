@@ -12,7 +12,7 @@ export default function(deck, selection) {
             {
                 // required;
                 title: "String",
-                type: "[ internal_link | external_link ]",
+                type: "a unique id present in the event dispatch",
                 summary: "A short paragraph description"
                 tags: [ "collection", "of", "related", "topics" ]
                 img: "A URL to a representative image"
@@ -70,7 +70,7 @@ export default function(deck, selection) {
                     .html(d=>d);
 
                 // Add the summary
-                let summary = (entry.type!='external_link') ? entry.summary : entry.summary+' &#x25ba';
+                let summary = (entry.type!='navigate') ? entry.summary : entry.summary+' &#x25ba';
                 let div = article.append('div')
                     .html(summary)
                     .on('click', clicker);
