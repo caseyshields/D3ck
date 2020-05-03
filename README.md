@@ -27,7 +27,8 @@ tasks
 
  design
  - [ ] figure out where to host images and how to optimize them
- - [ ] add sort controls; chronological or tag relevance
+ - [x] add tag relevance sort
+ - [ ] add chronological sort & toggle
  - [x] media query for a vertical phone layout 
  - [ ] make deck into a hierarchical component as in atlas project
  - [ ] investigate static site generation
