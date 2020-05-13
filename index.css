@@ -301,7 +301,7 @@ header {
     scroll-padding-left: 15vmin;
 }
 
-.slide {
+.slideshow figure {
     /* scroll-snap-align: start; */ /* No effect in FireFox */
     /* Please! Godammit, I hate this hacker crap! */
     width: 70vmin;
@@ -309,14 +309,14 @@ header {
     /*margin-right: 5vmin;*/
 }
 
-.slide img {
+.slideshow img {
     width: 70vmin;
     background: var( --secondary );
     border-radius: var( --radius );
     /* figure out aspect preserving img sizing up to a fraction of max dimension... */
 }
 
-.slide > figcaption {
+.slideshow figure > figcaption {
     color: var( --primary );
     background: var( --secondary );
     border-radius: var( --radius );

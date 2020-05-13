@@ -24,17 +24,18 @@ export default function(deck, selection) {
 ```js
 slides = [
     {
-        id = '',
-        class = '',
-        src = '',
-        notes = '',
+        id = '', // the name of the individual slide
+        class = '', // a css class which will be attached to the 'figure' tag. Optional, though consider using this to alter styling or apply image filters to your slideshow
+        src = '', // the path of the image
+        notes = '', // a caption which will be displayed with the image
     }
 ]
 ```
 ```html
 <nav>
     <a href="#${d.id}">
-        <img src="${d.thumb}" />
+        <?-- <img src="${d.thumb}" /> -->
+        ${index}
     </a>
     <!-- thumbnail is added for each image in the sequence -->
 </nav>
@@ -52,8 +53,6 @@ slides = [
 ```*/
     let slides = function( data ) {
 
-        console.log(data);
-
         // cache the dataset
         selection.datum( data );
 
@@ -68,13 +67,13 @@ slides = [
         let newfigures = figures.enter()
             .append('figure')
                 .attr('id', d=>d.id)
-                .attr( 'class', d=>(d.class==undefined)?'slide' : 'slide '+d.class )
+                .attr( 'class', d=>(d.class==undefined)? null : d.class )
         newfigures.append('a')
-                .attr('href', d=>'#'+d.id)// fall back to a scrubbed image name?
+                .attr('href', d=>'#'+d.id)// TODO fall back to a scrubbed image name?
             .append('img')
-                .attr('src', d=>d.img);//
+                .attr('src', d=>d.img);
         newfigures.append('figcaption')
-                .html(d=>d.notes);// 
+                .html(d=>d.notes); // TODO make caption display only when not undefined...
 
         // assume entries are never modified... might not be a good assumption forever
         figures = newfigures.merge( figures );
@@ -89,6 +88,7 @@ slides = [
 
         // figures.selectAll('figcaption')
         //         .html( d=>d.notes );
+        // TODO should we refresh the displayed data every render?
 
         // now add navigation links for all entries
         let links = navigation.selectAll('a')
@@ -100,9 +100,9 @@ slides = [
         links = links.enter()
             .append('a')
             .attr( 'href', d=>'#'+d.id )
-            .html( (d,i,s)=>i )//d=>d.id ) //
+            .html( (d,i,s)=>i )
             .merge( links );
-        // TODO just number if no Id's are provided
+        // TODO should I use rotated text if id's are provided?
         // TODO use thumbnails if those are provided...
     }
 
@@ -111,6 +111,11 @@ slides = [
         console.log(a, b, c);
         selection.classed('hide', true);
     }
+
+    // function getId( filename ) {
+    // // TODO If an ID isn't provided extract id from the filename?
+    // // be mindful of using same file in two different slideshows and display them subsequently
+    // }
 
     return slides;
 }
