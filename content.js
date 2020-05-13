@@ -47,7 +47,7 @@ getContent = function () {
       title: "Lego Railguns",
       type: "navigate",
       summary: "My brothers and I once made up a tactics game where we built Lego mecha and fired these little rubber band guns instead of rolling dice. I updated one of the designs and made instructions.",
-      tags: ['lego', 'instructions', 'video'],
+      tags: ['lego', 'instructions', 'wargamming'],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-34985/deceptibot/railguns/"
     }, {
@@ -60,7 +60,7 @@ getContent = function () {
       title: "Transforming A-10",
       type: "navigate", // TODO figure out how to embed youtube
       summary: "A Lego robot that transforms into an A10. Deceptively simple. Carefully designed to avoid 'shells' or 'backpack' mechanisms, minimised part number and cost, maximized the number of affordable color schemes, compromised between robot and vehicle proportions, while making it reasonably durable enough to actually play with!",
-      tags: ['lego', 'instructions', 'video'],
+      tags: ['lego', 'instructions', 'transformer'],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-25799/deceptibot/transforming-a10-thunderbolt/"
     }, {
@@ -106,10 +106,57 @@ getContent = function () {
       img: "",
       link: "https://rebrickable.com/mocs/MOC-38895/deceptibot/knight-paladin/"
     }, {
-      title: "MCV Type 16",
+      title: "Carousel Component",
+      type: "carousel",
+      summary: "This is just a placeholder entry, I'm working out the kinks in a carousal component. To really get it working I need to figure out how I'm going to host images. For now I'm just linking to the progression of the crease pattern to test it out.",
+      tags:["origami", "carousel", "component"],
+      img: "",
+      slides: [{
+          id: "cp1",
+          img: "https://caseyshields.github.io/dragon/img/dragon_1.svg",
+          notes: "Construct the landmarks"
+        },{
+          id: "cp2",
+          img: "https://caseyshields.github.io/dragon/img/dragon_2.svg",
+          notes: "Fold a bird base with a large diagonal graft"
+        },{
+          id: "cp3",
+          img: "https://caseyshields.github.io/dragon/img/dragon_3.svg",
+          notes: "Precrease 4 Y bases in graft"
+        },{
+          id: "cp4",
+          img: "https://caseyshields.github.io/dragon/img/dragon_4.svg",
+          notes: "Fold the bases in the graft"
+        },{
+          id: "cp5",
+          img: "https://caseyshields.github.io/dragon/img/dragon_5.svg",
+          notes: "Stretch the center of the base to form the body"
+        },{
+          id: "cp6",
+          img: "https://caseyshields.github.io/dragon/img/dragon_6.svg",
+          notes: "Form the rear legs and the tail"
+        },{
+          id: "cp7",
+          img: "https://caseyshields.github.io/dragon/img/dragon_7.svg",
+          notes: "Form the forelegs and the neck"
+        },{
+          id: "cp8",
+          img: "https://caseyshields.github.io/dragon/img/dragon_8.svg",
+          notes: "Fold the wing's arms and crimp the shoulders"
+        },{
+          id: "cp9",
+          img: "https://caseyshields.github.io/dragon/img/dragon_9.svg",
+          notes: "Shape tail"
+        },{
+          id: "cp10",
+          img: "https://caseyshields.github.io/dragon/img/dragon_10.svg",
+          notes: "Fold the head and horns"
+      } ]
+    },{
+      title: "Carousel Component",
       type: "carousel",
       summary: "I rendered the transformation sequence of a tank transformer to test out a carousel component.",
-      tags:["lego", "transformer", "instructions"],
+      tags:["lego", "transformer", "component"],
       img: "",
       slides: [{
               id: 'mcv16_1',
