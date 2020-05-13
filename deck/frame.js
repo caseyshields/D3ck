@@ -53,7 +53,7 @@ export default function(deck, selection) {
         console.log(d);
         if (d.link)
             frame.show( d.link );
-    });
+    }); // TODO this should probably be done in the application...
 
     // hide the frame by default.
     frame.hide();

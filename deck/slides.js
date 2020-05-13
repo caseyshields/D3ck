@@ -13,8 +13,12 @@ export default function(deck, selection) {
     if(gallery.size()==0)
         gallery = selection.append('div');
 
-    // close when the backround is clicked
-    // selection.on('click', hide);
+    // close when the backround is clicked, ignoring bubbling events
+    selection.node().addEventListener('click', 
+        function(event) {
+            if (event.target===this)
+                hide();
+    });
 
     /** Renders the given array of slides.
 ```js
@@ -48,34 +52,47 @@ slides = [
 ```*/
     let slides = function( data ) {
 
+        console.log(data);
+
         // cache the dataset
         selection.datum( data );
 
         // use the D3 General update pattern to add figures for each entry
         let figures = gallery.selectAll("figure.slide")
-            .data(data);
+            .data(data, d=>d.id);
 
         figures.exit()
             .remove();
 
         // add a figure for each data entry
         let newfigures = figures.enter()
-                .append('figure')
+            .append('figure')
                 .attr('id', d=>d.id)
-                .attr('class', d=>(d.class==undefined) ? 'slide' : 'slide '+d.class);
+                .attr( 'class', d=>(d.class==undefined)?'slide' : 'slide '+d.class )
         newfigures.append('a')
-                .attr('href', d=>'#'+d.id)
+                .attr('href', d=>'#'+d.id)// fall back to a scrubbed image name?
             .append('img')
-                .attr('src', d=>d.img);
+                .attr('src', d=>d.img);//
         newfigures.append('figcaption')
-                .html(d=>d.notes);
+                .html(d=>d.notes);// 
 
         // assume entries are never modified... might not be a good assumption forever
         figures = newfigures.merge( figures );
+        // figures.attr('id', d=>d.id)
+        //         .attr('class', d=>(d.class==undefined) ? 'slide' : 'slide '+d.class)
+
+        // let anchor = figures.selectAll('a')
+        //         .attr('href', d=>'#'+d.id)
+
+        // anchor.selectAll('img')
+        //         .attr('src', d=>d.img);
+
+        // figures.selectAll('figcaption')
+        //         .html( d=>d.notes );
 
         // now add navigation links for all entries
         let links = navigation.selectAll('a')
-            .data( data );
+            .data( data, d=>d.id );
 
         links.exit()
             .remove();
@@ -83,8 +100,16 @@ slides = [
         links = links.enter()
             .append('a')
             .attr( 'href', d=>'#'+d.id )
-            .html( d=>d.id )
+            .html( (d,i,s)=>i )//d=>d.id ) //
             .merge( links );
+        // TODO just number if no Id's are provided
+        // TODO use thumbnails if those are provided...
+    }
+
+    slides.hide = hide;
+    function hide( a, b, c ) {
+        console.log(a, b, c);
+        selection.classed('hide', true);
     }
 
     return slides;
