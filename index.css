@@ -270,8 +270,9 @@ header {
 .slideshow > nav {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    writing-mode: vertical-lr;
+    flex-direction: row;
+    justify-content: center;
+    /* writing-mode: vertical-lr; */
     /* overflow-x: scroll; */
 }
 
@@ -280,7 +281,9 @@ header {
     color: var( --primary );
     border-radius: var( --radius );
     padding: var( --radius );
-    margin: var(--radius );
+    margin-top: var(--radius );
+    margin-bottom: var(--radius );
+    margin-left: var(--radius );
     font-size: smaller;
 }
 
@@ -296,7 +299,6 @@ header {
     /* why do none of these work as I anticipate and the mdn docs are written by malicious aliens? */
     scroll-padding-right: 15vmin;
     scroll-padding-left: 15vmin;
-
 }
 
 .slide {
@@ -305,7 +307,6 @@ header {
     width: 70vmin;
     margin-left: 5vmin;
     /*margin-right: 5vmin;*/
-
 }
 
 .slide img {
@@ -319,6 +320,7 @@ header {
     color: var( --primary );
     background: var( --secondary );
     border-radius: var( --radius );
+    padding: 1em;
 }
 
 /** functional style rules */
