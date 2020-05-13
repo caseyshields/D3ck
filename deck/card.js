@@ -12,7 +12,7 @@ export default function(deck, selection) {
             {
                 // required;
                 title: "String",
-                type: "[ internal_link | external_link ]",
+                type: "a unique id present in the event dispatch",
                 summary: "A short paragraph description"
                 tags: [ "collection", "of", "related", "topics" ]
                 img: "A URL to a representative image"
@@ -36,6 +36,10 @@ export default function(deck, selection) {
     ``` */
     function card(data) {
 
+        // cache a ref to the data rendered at the root element
+        selection.datum(data);
+
+        // join the card entry data to a selection of cards
         let cards = selection.selectAll('article.card')
             .data(data, function(d) {
                 return !d ? 'dummy' : d.title;}
@@ -66,7 +70,7 @@ export default function(deck, selection) {
                     .html(d=>d);
 
                 // Add the summary
-                let summary = (entry.type!='external_link') ? entry.summary : entry.summary+' &#x25ba';
+                let summary = (entry.type!='navigate') ? entry.summary : entry.summary+' &#x25ba';
                 let div = article.append('div')
                     .html(summary)
                     .on('click', clicker);
@@ -80,23 +84,13 @@ export default function(deck, selection) {
                 //.classed('hide', (d)=>!filter(d) );
     }
 
-    // Event prototypes dispatched by this component
-    let navigate = 'navigate';
-    let preview = 'preview';
-    
     /* When the user clicks on the summary, Card will emit a 'navigate' event for 'external_links' media
      * types, or it will generate a 'preview' event for 'internal_link' media types.
      * Dispatched events are given the Card component as a context and passed the data item as an argument.
      */
     function clicker(d) {
-        if (d.type=='internal_link')
-            deck.dispatch.call(preview, card, d);
-        else if (d.type=='external_link')
-            deck.dispatch.call(navigate, card, d);
-        // TODO add more media types as I think of them...
-    }
-    // TODO make behavior more configurable? Per media type?
-    // TODO make Component's register events with dispatch at construction?
+        deck.dispatch.call( d.type, card, d);
+    } // TODO make Component's register events with dispatch at construction?
 
     /** D3 style mutator for filter predicate.
      * When the Cards render, the 'hide' style will be applied to any card whose data the predicate evaluates to false.*/

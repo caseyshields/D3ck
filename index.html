@@ -106,6 +106,12 @@
                 frameborder="0">
             </iframe>
         </section>
+
+        <!-- A section for displaying slideshows -->
+        <section class="slideshow hide">
+            <nav></nav>
+            <div></div>
+        </section>
         
         <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
         <script src="./content.js" charset="utf-8"></script>
@@ -114,6 +120,7 @@
             import Card from './deck/card.js';
             import Frame from './deck/frame.js';
             import Tags from './deck/tags.js';
+            import Slides from './deck/slides.js';
             let Window = document.defaultView
 
             // TODO in the future get this from some CMS or document database...
@@ -128,7 +135,7 @@
                 Window.location.assign(d.link);
             } );
 
-            // Create the Card components, they will generate events when their entries are clicked
+            // Create the Card components which will generate events when their entries are clicked
             let section = d3.select('.deck');
             let cards = Card(deck, section);
             cards(content); // invoke the render method on the content
@@ -137,14 +144,27 @@
             let frame = Frame(deck, d3.select('body'));
             frame({});
 
+            // create the slideshow modal
+            let slideshow = d3.select('.slideshow');
+            // slideshow.on('click', d=>slideshow.classed('hide', true));
+            // TODO how do I add a hide button, this trigger on clicks of the children elements...
+
+            let slides = Slides(deck, slideshow);
+            slides({});
+
+            deck.dispatch.on('carousel', function(d) {
+                slideshow.classed('hide', null);
+                slides( d.slides );
+            });
+
             // add the tag toggles and wire them into the application
             let nav = d3.select('.toggles');
             let tags = Tags(deck, nav);
-            tags(content);
-            cards.filter( tags.filter );
+            tags(content); // pass the content data to the default render method
+            cards.filter( tags.filter ); // set the card's filter to the one supplied by the tags component
             deck.dispatch.on('filter', function(d) {
                 cards(content);
-            });
+            }); // on a filter event re-render the cards.
 
             // this shadow effect might be eye-bleeding. it is also neat.
             d3.select('body').on('mousemove', function(item, index, selection) {

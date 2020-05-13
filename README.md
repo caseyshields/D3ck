@@ -16,6 +16,9 @@ tasks
  - [ ] make card component lazy load images, swap image w/description on mouseover
  - [ ] break up d3 module dependencies
  - [ ] URL arguments for tag filters
+ - [ ] add a Carousel component
+ - [ ] make a color picker component
+ - [ ] switch to SVG hero and figure out how to dynamically alter colors
 
  tweaks
  - [ ] wait for the iframe to load before showing it
@@ -27,7 +30,9 @@ tasks
 
  design
  - [ ] figure out where to host images and how to optimize them
- - [ ] add sort controls; chronological or tag relevance
+ - [ ] add a hidable modal component which takes another component as an argument
+ - [x] add tag relevance sort
+ - [ ] add chronological sort & toggle
  - [x] media query for a vertical phone layout 
  - [ ] make deck into a hierarchical component as in atlas project
  - [ ] investigate static site generation
