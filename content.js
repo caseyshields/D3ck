@@ -112,138 +112,93 @@ getContent = function () {
       tags: ["lego", "wargamming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-40607/deceptibot/knight-gallant/"
-    }, {
+    },{
       title: "Carousel Component",
       type: "carousel",
-      summary: "This is just a placeholder entry, I'm working out the kinks in a carousal component. To really get it working I need to figure out how I'm going to host images. For now I'm just linking to step crease patterns on my dragon website. I'm sure I'll have somestyling issues to fix as well.",
-      tags:["origami", "carousel", "component"],
+      summary: "Testing out a carousel component and an image hosting service. Now I can can start adding images besides SVGs. This? This is a Lego mecha transforming into a light tank which I built in Stud.io. Now I got to figure out lazy loading and throttling image quality through the host's API...",
+      tags:["lego", "transformer", "component"],
       img: "",
       slides: [{
-          id: "cp1",
-          img: "https://caseyshields.github.io/dragon/img/dragon_1.svg",
-          notes: "Construct the landmarks"
-        },{
-          id: "cp2",
-          img: "https://caseyshields.github.io/dragon/img/dragon_2.svg",
-          notes: "Fold a bird base with a large diagonal graft"
-        },{
-          id: "cp3",
-          img: "https://caseyshields.github.io/dragon/img/dragon_3.svg",
-          notes: "Precrease 4 Y bases in graft"
-        },{
-          id: "cp4",
-          img: "https://caseyshields.github.io/dragon/img/dragon_4.svg",
-          notes: "Fold the bases in the graft"
-        },{
-          id: "cp5",
-          img: "https://caseyshields.github.io/dragon/img/dragon_5.svg",
-          notes: "Stretch the center of the base to form the body"
-        },{
-          id: "cp6",
-          img: "https://caseyshields.github.io/dragon/img/dragon_6.svg",
-          notes: "Form the rear legs and the tail"
-        },{
-          id: "cp7",
-          img: "https://caseyshields.github.io/dragon/img/dragon_7.svg",
-          notes: "Form the forelegs and the neck"
-        },{
-          id: "cp8",
-          img: "https://caseyshields.github.io/dragon/img/dragon_8.svg",
-          notes: "Fold the wing's arms and crimp the shoulders"
-        },{
-          id: "cp9",
-          img: "https://caseyshields.github.io/dragon/img/dragon_9.svg",
-          notes: "Shape tail"
-        },{
-          id: "cp10",
-          img: "https://caseyshields.github.io/dragon/img/dragon_10.svg",
-          notes: "Fold the head and horns"
-      } ]
+              id: 'mcv16_1',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420301/mcv16/MCV16_1_r8gj7q.png',
+              notes: 'This mecha transforms into a scout tank based of the Japanese MCV Type 16.',
+          },{
+              id: 'mcv16_2',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420304/mcv16/MCV16_2_kgrl8r.png',
+              notes: 'Straighten the left gun arm',
+          },{
+              id: 'mcv16_3',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420300/mcv16/MCV16_3_tljbjs.png',
+              notes: 'Rotate the arm backwards. Notice the stud atop the shoulder.',
+          },{
+              id: 'mcv16_4',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420293/mcv16/MCV16_4_rwyykd.png',
+              notes: 'It will socket into the pin-hole in the torso when you rotate the shoulder forward.',
+          },{
+              id: 'mcv16_5',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420303/mcv16/MCV16_5_vamppp.png',
+              notes: 'Flatten the shoulder gaurd against the shoulder joint. Then swivel the gun arm around the axis so the trigger points up.',
+          },{
+              id: 'mcv16_6',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420299/mcv16/MCV16_6_k6b5kh.png',
+              notes: 'Flatten the vertebrae and slot the head into the torso.',
+          },{
+              id: 'mcv16_7',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420304/mcv16/MCV16_7_yut6xe.png',
+              notes: 'Rotate the right turret arm so that it points forward.',
+          },{
+              id: 'mcv16_8',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420307/mcv16/MCV16_8_x8yz1h.png',
+              notes: 'Tuck in the thumb and square the forearm. Rotate the mortar turret forward.',
+          },{
+              id: 'mcv16_9',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420308/mcv16/MCV16_9_o7kxeq.png',
+              notes: 'Fold the forearm around the chest and flatten the fingers.',
+          },{
+              id: 'mcv16_10',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420313/mcv16/MCV16_10_qezxpg.png',
+              notes: 'Straighten the legs at the knees',
+          },{
+              id: 'mcv16_11',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420315/mcv16/MCV16_11_jewhsy.png',
+              notes: 'Rotate the lower legs so that the shins face inward. Take care not to break the thigh armor on this step...',
+          },{
+              id: 'mcv16_12',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420318/mcv16/MCV16_12_vn9ro3.png',
+              notes: 'The shin greaves rotate away from the lower leg to form a deck.',
+          },{
+              id: 'mcv16_13',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420318/mcv16/MCV16_13_adwmg7.png',
+              notes: 'Rotate the boots to form the front of the vehicle. Notice how they have opposite stud orientations...',
+          },{
+              id: 'mcv16_14',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420319/mcv16/MCV16_14_ykkuej.png',
+              notes: 'Rotate the legs at the hip so the tires sit on the ground.',
+          },{
+              id: 'mcv16_15',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420323/mcv16/MCV16_15_yab7bu.png',
+              notes: 'Rotate the chest to the back of the abdomen.',
+          },{
+              id: 'mcv16_16',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420326/mcv16/MCV16_16_aekftk.png',
+              notes: 'Rotate the abdomen parallel to the ground.',
+          },{
+              id: 'mcv16_17',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420324/mcv16/MCV16_17_w5vw7l.png',
+              notes: 'The legs can be connected using the opposing studs on the boots at the front of the vehicle.',
+          },{
+              id: 'mcv16_18',
+              img: 'https://res.cloudinary.com/dgedlitah/image/upload/v1589420325/mcv16/MCV16_18_ozcwci.png',
+              notes: 'The main turret can be rotated to any orientation.',
+          }
+      ]
+    }, {
+      title: "Transforming MCV-16",
+      type: "navigate", // TODO figure out how to embed youtube
+      summary: "A Lego mecha that transforms into an MCV type 16 scout tank. Another one that's gone through a lot of revisions to optimize proportions, durability, color scheme and part cost. Plans can be purchased on my Rebrickable page.",
+      tags: ['lego', 'instructions', 'transformer'],
+      img: "",
+      link: "https://rebrickable.com/mocs/MOC-41371/deceptibot/transforming-tank-mecha"
     }
-    // ,{
-    //   title: "Carousel Component",
-    //   type: "carousel",
-    //   summary: "I rendered the transformation sequence of a tank transformer to test out a carousel component.",
-    //   tags:["lego", "transformer", "component"],
-    //   img: "",
-    //   slides: [{
-    //           id: 'mcv16_1',
-    //           img: '/test/MCV16_transformation_1.png',
-    //           notes: 'This mecha transforms into a scout tank based of the Japanese MCV Type 16.',
-    //       },{
-    //           id: 'mcv16_0',
-    //           img: '/test/MCV16_transformation_0.png',
-    //           notes: 'test broken link...',
-    //       },{
-    //           id: 'mcv16_2',
-    //           img: '/test/MCV16_transformation_2.png',
-    //           notes: 'Straighten the left gun arm',
-    //       },{
-    //           id: 'mcv16_3',
-    //           img: '/test/MCV16_transformation_3.png',
-    //           notes: 'Rotate the arm backwards. Notice the stud atop the shoulder.',
-    //       },{
-    //           id: 'mcv16_4',
-    //           img: '/test/MCV16_transformation_4.png',
-    //           notes: 'It will socket into the pin-hole in the torso when you rotate the shoulder forward.',
-    //       },{
-    //           id: 'mcv16_5',
-    //           img: '/test/MCV16_transformation_5.png',
-    //           notes: 'Flatten the shoulder gaurd against the shoulder joint. Then swivel the gun arm around the axis so the trigger points up.',
-    //       },{
-    //           id: 'mcv16_6',
-    //           img: '/test/MCV16_transformation_6.png',
-    //           notes: 'Flatten the vertebrae and slot the head into the torso.',
-    //       },{
-    //           id: 'mcv16_7',
-    //           img: '/test/MCV16_transformation_7.png',
-    //           notes: 'Rotate the right turret arm so that it points forward.',
-    //       },{
-    //           id: 'mcv16_8',
-    //           img: '/test/MCV16_transformation_8.png',
-    //           notes: 'Tuck in the thumb and square the forearm. Rotate the mortar turret forward.',
-    //       },{
-    //           id: 'mcv16_9',
-    //           img: '/test/MCV16_transformation_9.png',
-    //           notes: 'Fold the forearm around the chest and flatten the fingers.',
-    //       },{
-    //           id: 'mcv16_10',
-    //           img: '/test/MCV16_transformation_10.png',
-    //           notes: 'Straighten the legs at the knees',
-    //       },{
-    //           id: 'mcv16_11',
-    //           img: '/test/MCV16_transformation_11.png',
-    //           notes: 'Rotate the lower legs so that the shins face inward. Take care not to break the thigh armor on this step...',
-    //       },{
-    //           id: 'mcv16_13',
-    //           img: '/test/MCV16_transformation_13.png',
-    //           notes: 'The shin greaves rotate away from the lower leg to form a deck.',
-    //       },{
-    //           id: 'mcv16_14',
-    //           img: '/test/MCV16_transformation_14.png',
-    //           notes: 'Rotate the boots to form the front of the vehicle. Notice how they have opposite stud orientations...',
-    //       },{
-    //           id: 'mcv16_15',
-    //           img: '/test/MCV16_transformation_15.png',
-    //           notes: 'Rotate the legs at the hip so the tires sit on the ground.',
-    //       },{
-    //           id: 'mcv16_16',
-    //           img: '/test/MCV16_transformation_16.png',
-    //           notes: 'Rotate the chest to the back of the abdomen.',
-    //       },{
-    //           id: 'mcv16_17',
-    //           img: '/test/MCV16_transformation_17.png',
-    //           notes: 'Rotate the abdomen parallel to the ground.',
-    //       },{
-    //           id: 'mcv16_18',
-    //           img: '/test/MCV16_transformation_18.png',
-    //           notes: 'The legs can be connected using the opposing studs on the boots at the front of the vehicle.',
-    //       },{
-    //           id: 'mcv16_19',
-    //           img: '/test/MCV16_transformation_19.png',
-    //           notes: 'The main turret can be rotated to any orientation.',
-    //       }
-    //   ]
-    // }
   ]
 };
