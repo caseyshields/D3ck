@@ -107,9 +107,13 @@ slides = [
     }
 
     slides.hide = hide;
-    function hide( a, b, c ) {
-        console.log(a, b, c);
+    function hide( ) {
         selection.classed('hide', true);
+    }
+
+    slides.show = show;
+    function show( ) {
+        selection.classed('hide', null);
     }
 
     // function getId( filename ) {

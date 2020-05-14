@@ -146,15 +146,11 @@
 
             // create the slideshow modal
             let slideshow = d3.select('.slideshow');
-            // slideshow.on('click', d=>slideshow.classed('hide', true));
-            // TODO how do I add a hide button, this trigger on clicks of the children elements...
-
             let slides = Slides(deck, slideshow);
             slides({});
-
             deck.dispatch.on('carousel', function(d) {
-                slideshow.classed('hide', null);
                 slides( d.slides );
+                slides.show();
             });
 
             // add the tag toggles and wire them into the application
