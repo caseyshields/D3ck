@@ -16,7 +16,7 @@ export default function(deck, selection) {
     // close when the backround is clicked, ignoring bubbling events
     selection.node().addEventListener('click', 
         function(event) {
-            if (event.target===this)
+            if (event.target===this || event.target.parentElement===this)
                 hide();
     });
 
