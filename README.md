@@ -36,7 +36,7 @@ modal
 
 tag filter
  - [x] add a tag toggles component to the filter/navigation.
- - [ ] URL arguments for tag filters
+ - [x] URL arguments for tag filters
  - [ ] add animated transitions for filter state changes
  - [x] add tag relevance sort
 
