@@ -26,7 +26,12 @@ export default function(deck, selection) {
     * The resulting markup looks like;
     ```html
     <!-- root selection -->
-        <div class="tag"> ${tags[n]} </div>
+        <div class="tag">
+            ${d.tag}
+            <span class="count">
+                ${d.count}
+            </span>
+        </div>
         <!-- divs created for each unique tag in the dataset -->
     <!-- root selection -->
     ``` */
@@ -51,7 +56,6 @@ export default function(deck, selection) {
         let key = []
         for (let tag in counts)
             key.push( {tag, count:counts[tag]} );
-        // TODO should we make this available to user?
 
         // D3 General Update Pattern applied to tag toggles
         toggles = toggles
@@ -63,7 +67,7 @@ export default function(deck, selection) {
             .append('div')
             .classed('tag', true)
             .classed('or', true)
-            .on( 'click', toggle )
+            .on( 'click', clicked )
             .html( d => d.tag );
 
         newtoggles.append('span')
@@ -75,6 +79,8 @@ export default function(deck, selection) {
                 return (item.count>0) ? null : 'none';
             })
             .sort( (a,b)=>b.count-a.count );
+            // Should I make sort function configurable?
+            // So user might switch between chrono or relevance order for example?
             
         // update counts as filter changes...
         toggles.select('.count').html( d=>d.count );
@@ -85,45 +91,73 @@ export default function(deck, selection) {
             // .classed( 'or', true );
     }
 
-    tags.order = function() {
-        // matching and tags: +1
-    }
-
-    /** A predicate which applies an and rule for each currently selected tag */
+    /** A predicate which requires the item.tags array to include every selected tag
+    */
     tags.filter = filter;
     function filter(item) {
-        // console.log(ands);
         return ands.every( and=>item.tags.includes(and) );
     }
 
+    /** @returns whether the given tag string is currently selected.
+    */
     tags.includes = function(tag) {
         return ands.includes(tag);
     }
+    // TODO provide an accessor that checks if content even has the given tag
     
-    /** toggles the clicked tag state between 'or' and 'and'. */
-    function toggle(d) {
-        // update the tag list and toggle the styling
-        let toggle = d3.select(this);
+    /** toggles the clicked tag state between 'or' and 'and'.
+     * @param {Object} d - the datum from the clicked UI tag
+    */
+    function clicked(d) {
+        let toggle = d3.select(this); // D3 passes the clicked element as 'this'
+        flip(d.tag, toggle);
+        refresh( d );
+    }
 
-        if (toggle.classed('or')) {
-            ands.push( d.tag );
-            toggle.classed('or', false);
-            toggle.classed('and', true);
+    /** Find the toggles that match tags in the list and flip them.
+     * If a given tag name has no corresponding toggle in the component, it is ignored.
+     * @param {Array} tags - a list of tag strings
+    */
+    function toggle( tags ) {
+        selection.selectAll('div')
+            .filter( d=>tags.includes(d.tag) )
+            .each( function(d) {
+                let div = d3.select(this);
+                flip( d.tag, div );
+            } );
+        refresh();
+    }
+    // TODO : if you select mutually exclusive tags all toggles will disapear, and you willl not be able to flip them!
+    // while it is not possible to click-in such an input, we should still consider how to recover from this state...
+
+    /** Updates the selected tag list and changes the styling of the given div
+     * @param {string} tag - the tag string
+     * @param {Object} div - A singular D3 selection of the tag's DOM element
+    */
+    function flip( tag, div ) {
+        if (div.classed('or')) {
+            ands.push( tag );
+            div.classed('or', false);
+            div.classed('and', true);
         }
-        else if (toggle.classed('and')) {
-            let n = ands.findIndex( item => item===d.tag );
+        else if (div.classed('and')) {
+            let n = ands.findIndex( item => item===tag );
             ands.splice( n, 1 );
-            toggle.classed('and', false);
-            toggle.classed('or', true);
+            div.classed('and', false);
+            div.classed('or', true);
         }
+    }
 
-        // refresh the display using the cached data
+    /** refresh the component and dispatch a filter event.
+     * @param {Object} datum - Optional, the tag that changed. */
+    function refresh( datum ) {
+        // re-render the display using the cached data
         tags( selection.datum() );
 
-        // emit a filter event
-        deck.dispatch.call('filter', tags, d);
+        // emit a filter event so other components can update
+        deck.dispatch.call('filter', tags, datum);
     }
-    
+
     tags.toggle = toggle;
 
     return tags;
