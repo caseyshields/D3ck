@@ -142,7 +142,7 @@
 
             // create the preview modal, it also registers to listen to 'preview' events on construction
             let frame = Frame(deck, d3.select('body'));
-            frame({});
+            frame({}); // TODO actually the app should register events, not the component...
 
             // create the slideshow modal
             let slideshow = d3.select('.slideshow');
@@ -161,6 +161,14 @@
             deck.dispatch.on('filter', function(d) {
                 cards(content);
             }); // on a filter event re-render the cards.
+
+            // Apply any URL query parameters
+            let params = (new URL(document.location)).searchParams;
+            let tagParam = params.get('tags');
+            if (tags!=null && tags!=undefined) {
+                let tagList = tagParam.split(',');
+                tags.toggle( tagList );
+            }//TODO I should update document location as tags change...
 
             // this shadow effect might be eye-bleeding. it is also neat.
             d3.select('body').on('mousemove', function(item, index, selection) {
