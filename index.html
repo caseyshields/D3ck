@@ -165,7 +165,7 @@
             // Apply any URL query parameters
             let params = (new URL(document.location)).searchParams;
             let tagParam = params.get('tags');
-            if (tags!=null && tags!=undefined) {
+            if (tagParam!=null && tagParam!=undefined) {
                 let tagList = tagParam.split(',');
                 tags.toggle( tagList );
             }//TODO I should update document location as tags change...
