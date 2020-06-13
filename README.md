@@ -21,7 +21,6 @@ framework
  - [ ] syndication automation tools
 
 card deck
- - [ ] 
  - [ ] make card component lazy load images, swap image w/description on mouseover
  - [x] make an external/internal link distinction and make the modal behave appropriately
  - [ ] fix the dang shadow effect z height
