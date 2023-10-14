@@ -2,6 +2,20 @@ getContent = function () {
   // TODO add a list of dates to each entry...
   return [
     {
+      title: "Freeblade Lance",
+      type: "navigate",
+      summary: "A website I made in Svelte for referencing the rules of one of my wargaming armies. The idea was I could just give my the opponent the URL so there would be no surprises. The site also features a lot of photography of my Freeblade Lance; A caste of Nobleman warriors who pilot giant Medieval robots with chainsaws and naval guns for arms. ",
+      tags: ["wargaming", "miniatures", "svelte"],
+      img: "",
+      link: "https://caseyshields.gitlab.io/knights/bondsmen"
+    }, {
+      title: "Flight Instructor",
+      type: "navigate",
+      summary: "An example website for a flight instructor. Surprisingly only uses CSS and SVG. The color scheme is based on rayleigh scattering in the atmosphere.",
+      tags: ["webdesign", "css", "svg"],
+      img: "",
+      link: "https://caseyshields.gitlab.io/clouds"
+    }, {
       title:"Western Dragon",
       type: "preview",
       summary:"One of my earliest origami designs. All fold angles are multiples of 22.5 degrees and relatively few folds are more than 2-ply. This makes it easier to retain accuracy and fold from a small square. The long limbs also make a variety of poses possible.",
@@ -47,7 +61,7 @@ getContent = function () {
       title: "Lego Railguns",
       type: "navigate",
       summary: "My brothers and I once made up a tactics game where we built Lego mecha and fired these little rubber band guns instead of rolling dice. I updated one of the designs and made instructions.",
-      tags: ['lego', 'instructions', 'wargamming'],
+      tags: ['lego', 'instructions', 'wargaming'],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-34985/deceptibot/railguns/"
     }, {
@@ -88,28 +102,28 @@ getContent = function () {
       title: "Auspex",
       type: "navigate",
       summary: "WIP. A rangefinder for table top games. All the documentation is written in the argot of the Martian Machine Cult. It's feels oddly appropriate since I am profoundly ignorant of hardware. I merely upload the blessed procedural litanies via binaric canting.",
-      tags: ["wargamming", "C", "embedded"],
+      tags: ["wargaming", "C", "embedded"],
       img: "",
       link: "https://github.com/caseyshields/auspex"
     }, {
       title: "Knight Errant",
       type: "navigate",
       summary: "A Questoris class Imperial Knight Errant of House Cadmus made in Lego. The chainsword has a wind up motor and all the guns use Lego shooters to fire projectile. I made the instructions and renders Stud.io and put them on Rebrickable for free.",
-      tags: ["lego", "wargamming", "instructions"],
+      tags: ["lego", "wargaming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-38571/deceptibot/knight-errant/"
     }, {
       title: "Knight Paladin",
       type: "navigate",
       summary: "A Questoris class Imperial Knight Paladin of House Taranis made in Lego. This one has a Battle Cannon that fire two, 6 stud-long axles in succession. I made the instructions and renders Stud.io and put them on Rebrickable for free.",
-      tags: ["lego", "wargamming", "instructions"],
+      tags: ["lego", "wargaming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-38895/deceptibot/knight-paladin/"
     }, {
       title: "Knight Gallant",
       type: "navigate",
       summary: "Yet another variation of my Imperial Knight Lego model. This one is a Questoris Gallant of House Griffith, equipped with a Stormspear Rocket pod and a light-up Paragon Gauntlet.",
-      tags: ["lego", "wargamming", "instructions"],
+      tags: ["lego", "wargaming", "instructions"],
       img: "",
       link: "https://rebrickable.com/mocs/MOC-40607/deceptibot/knight-gallant/"
     // },{
