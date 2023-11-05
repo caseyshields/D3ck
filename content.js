@@ -2,6 +2,13 @@ getContent = function () {
   // TODO add a list of dates to each entry...
   return [
     {
+      title: "Julia Fractal",
+      type: "navigate",
+      summary: "A Julia fractal whose parameters can be edited with mouse gestures. Part of a series of P5 sketches so I can contribute to a generative art project.",
+      tags: ["P5", "fractal", "julia"],
+      img: "",
+      link: "https://caseyshields.github.io/breathe/cameraJulia/index.html",
+    }, {
       title: "Freeblade Lance",
       type: "navigate",
       summary: "A website I made in Svelte for referencing the rules of one of my wargaming armies. The idea was I could just give my the opponent the URL so there would be no surprises. The site also features a lot of photography of my Freeblade Lance; A caste of Nobleman warriors who pilot giant Medieval robots with chainsaws and naval guns for arms. ",
