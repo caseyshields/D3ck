@@ -5,14 +5,14 @@ getContent = function () {
       title: "Julia Fractal",
       type: "navigate",
       summary: "A Julia fractal whose parameters can be edited with mouse gestures. Part of a series of P5 sketches so I can contribute to a generative art project.",
-      tags: ["P5", "fractal", "julia"],
+      tags: ["P5", "fractal", "Js"],
       img: "",
       link: "https://caseyshields.github.io/breathe/cameraJulia/index.html",
     }, {
       title: "Freeblade Lance",
       type: "navigate",
       summary: "A website I made in Svelte for referencing the rules of one of my wargaming armies. The idea was I could just give my the opponent the URL so there would be no surprises. The site also features a lot of photography of my Freeblade Lance; A caste of Nobleman warriors who pilot giant Medieval robots with chainsaws and naval guns for arms. ",
-      tags: ["wargaming", "miniatures", "svelte"],
+      tags: ["wargaming", "miniatures", "svelte", "Js"],
       img: "",
       link: "https://caseyshields.gitlab.io/knights/bondsmen"
     }, {
@@ -33,7 +33,7 @@ getContent = function () {
       title: "Trie Example",
       type: "preview",
       summary: "Demonstrates the construction of a trie data structure as you type. The neat thing about tries is you can put millions of words in them and the retrieval time is only proportional to the length of the word you're looking for. The leaves are marked with red- that's where you would link the data associated with the key.",
-      tags: ['D3', 'trie', 'algorithms'],
+      tags: ['D3', 'trie', 'algorithms', "Js"],
       img: "",
       link: "https://caseyshields.github.io/trie/"
     },{
@@ -54,14 +54,14 @@ getContent = function () {
       title: "Star Catalog",
       type: "preview",
       summary: "Made a starchart component in D3 to display some of the star catalogs used in sensor calibration. This example shows the first part of FK6. You can alter the projection by dragging and zooming. Click stars to display their catalog entries.",
-      tags: ['D3', 'astronomy', 'component'],
+      tags: ['D3', 'astronomy', 'component', "Js"],
       img: "",
       link: "https://caseyshields.github.io/starmap/"
     },{
       title: "Nevada",
       type: "preview",
       summary: "Made a layered vector map component with D3. Recently I refactored it to work as a composite of simpler components to help with extensibility and maintainability. I was heavily influenced by Mike Bostock's article 'On D3 Components' and tried to apply the methodology to a composition of visual components.",
-      tags: ['D3', 'cartography', 'component'],
+      tags: ['D3', 'cartography', 'component', "Js"],
       img: "",
       link: "https://caseyshields.github.io/nevada/"
     }, {
@@ -75,7 +75,7 @@ getContent = function () {
       title: "Suffix Trie",
       type: "preview",
       summary: "Implemented the quadratic time suffix tree construction in Ukkonen's lectures on his algorithm.Some day I'll animate it and add more. Always been fascinated with this data structure since implementing Aho Corasick for a problem at work.",
-      tags: ['algorithms', 'trie', 'D3'],
+      tags: ['algorithms', 'trie', 'D3', "Js"],
       link: "https://caseyshields.github.io/suffix"
     }, {
       title: "Transforming A-10",
