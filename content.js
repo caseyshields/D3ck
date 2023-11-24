@@ -18,7 +18,7 @@ getContent = function () {
     }, {
       title: "Flight Instructor",
       type: "navigate",
-      summary: "An example website for a flight instructor. Surprisingly only uses CSS and SVG. The color scheme is based on rayleigh scattering in the atmosphere.",
+      summary: "An example website for a flight instructor. Surprisingly only uses CSS and SVG, including the procedural clouds! The color scheme is based on rayleigh scattering in the atmosphere.",
       tags: ["webdesign", "css", "svg"],
       img: "",
       link: "https://caseyshields.gitlab.io/clouds"

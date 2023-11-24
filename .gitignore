@@ -6,3 +6,4 @@ server.js
 
 # ignore test assets
 test/
+assets/
