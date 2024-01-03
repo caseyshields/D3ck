@@ -7,7 +7,7 @@ getContent = function () {
       summary: "A Julia fractal whose parameters can be edited with mouse gestures. Part of a series of P5 sketches so I can contribute to a generative art project.",
       tags: ["P5", "fractal", "Js"],
       img: "",
-      link: "https://caseyshields.github.io/breathe/cameraJulia/index.html",
+      link: "https://caseyshields.github.io/breathe/dom/index.html",
     }, {
       title: "Freeblade Lance",
       type: "navigate",
