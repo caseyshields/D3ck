@@ -1,10 +1,17 @@
 getContent = function () {
   // TODO add a list of dates to each entry...
   return [
-    {
+		{
+			title: "Exercise Selection",
+			type: "navigate",
+			summary: "Trying to create a intuitive interface for selecting workout exercises from an open source database using the fewest clicks. Eventually I want to incorporate it into a Lightweight PWA for tracking workouts. It is also a good excuse to learn SolidJs and IndexedDb.",
+			tags: ["Js", "SolidJs", "svg", "idb", "health"],
+			img:"",
+			link: "https://caseyshields.gitlab.io/sisyphus/"
+		}, {
       title: "Julia Fractal",
       type: "navigate",
-      summary: "A Julia fractal whose parameters can be edited with mouse gestures. Part of a series of P5 sketches so I can contribute to a generative art project.",
+      summary: "A Julia fractal whose parameters can be edited with mouse gestures. Part of a series of P5 sketches so I can contribute to a generative art project. Eventually this will be redone in a WebGl shader for Soothing Systems; a browser based yoga guide.",
       tags: ["P5", "fractal", "Js"],
       img: "",
       link: "https://caseyshields.github.io/breathe/dom/index.html",
