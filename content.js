@@ -2,9 +2,23 @@ getContent = function () {
   // TODO add a list of dates to each entry...
   return [
 		{
-			title: "Exercise Selection",
+			title: "New Portfolio Website",
 			type: "navigate",
-			summary: "Trying to create a intuitive interface for selecting workout exercises from an open source database using the fewest clicks. Eventually I want to incorporate it into a Lightweight PWA for tracking workouts. It is also a good excuse to learn SolidJs and IndexedDb.",
+			summary: "I'm writing a new personal website in Astro. I want to improve the overall design, put some generative art on the landing page, and support more kinds of content. It's not ready yet, but eventually it'll replace this site.",
+			tags: ["Astro", "css", "webdesign"],
+			img: "",
+			link: "https://caseyshields.gitlab.io/journal/"
+		}, {
+			title: "UX study for Exercise Selection",
+			type: "navigate",
+			summary: "An article on designing the perfect exercise selection modal. A set of professional UIs are reviewed and a simplified approach is synthesized. I'm enthusiastic about the project, so this will probably be a recurring series.",
+			tags: ["UX", "svg", "health"],
+			img:"",
+			link: "https://caseyshields.gitlab.io/journal/ux-case-study-exercise-selection/"
+		}, {
+			title: "Exercise Selection Modal",
+			type: "navigate",
+			summary: "Trying to create a intuitive interface for selecting exercises from an open source database using the fewest clicks. Eventually I want to incorporate it into a Lightweight PWA for tracking workouts. It is also a good excuse to learn SolidJs and IndexedDb.",
 			tags: ["Js", "SolidJs", "svg", "idb", "health"],
 			img:"",
 			link: "https://caseyshields.gitlab.io/sisyphus/"
